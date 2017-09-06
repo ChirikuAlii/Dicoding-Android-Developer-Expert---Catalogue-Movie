@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/relative_layout_container_item_search_movie"
+    >
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:id="@+id/image_view_poster_item_search_movie"
+        android:contentDescription="@string/image_view_poster"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_juduL_film_item_search_movie"
+        android:text="@string/judul_film"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/image_view_poster_item_search_movie"
+        android:layout_toEndOf="@+id/image_view_poster_item_search_movie"
+        android:layout_marginTop="13dp"
+        android:ellipsize="end"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_deskripsi_film_item_searc_movie"
+        android:text="@string/deskripsi_film"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_toRightOf="@+id/image_view_poster_item_search_movie"
+        android:layout_toEndOf="@+id/image_view_poster_item_search_movie"
+        android:layout_below="@+id/text_view_juduL_film_item_search_movie"
+        android:ellipsize="end"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_tanggal_release_item_search_movie"
+        android:text="@string/tanggal_release"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_toRightOf="@+id/image_view_poster_item_search_movie"
+        android:layout_toEndOf="@+id/image_view_poster_item_search_movie"
+        android:layout_below="@+id/text_view_deskripsi_film_item_searc_movie"
+        android:ellipsize="end"
+        />
+
+</RelativeLayout>

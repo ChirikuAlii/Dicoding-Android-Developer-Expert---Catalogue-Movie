@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Catalogue Movie</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cari">Cari</string>
+    <string name="image_view_poster">image view poster</string>
+    <string name="judul_film">judul film</string>
+    <string name="deskripsi_film">deskripsi film</string>
+    <string name="tanggal_release">tanggal release</string>
+    <string name="kata_kunci_belum_di_isi">Kata kunci belum di isi!</string>
+</resources>
