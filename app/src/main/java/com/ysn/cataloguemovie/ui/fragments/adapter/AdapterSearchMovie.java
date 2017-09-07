@@ -1,6 +1,7 @@
 package com.ysn.cataloguemovie.ui.fragments.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.ysn.cataloguemovie.BuildConfig;
 import com.ysn.cataloguemovie.R;
 import com.ysn.cataloguemovie.model.movie.search.ResultSearchMovie;
 import com.ysn.cataloguemovie.model.movie.search.SearchMovie;
@@ -40,7 +42,9 @@ public class AdapterSearchMovie extends RecyclerView.Adapter<AdapterSearchMovie.
     public void onBindViewHolder(ViewHolderSearchMovie holder, int position) {
         ResultSearchMovie resultSearchMovie = listResultSearchMovies.get(position);
         Glide.with(context)
-                .load(resultSearchMovie.getPosterPath())
+                .load(BuildConfig.BASE_URL_IMAGE + resultSearchMovie.getPosterPath())
+                .placeholder(ContextCompat.getDrawable(context, R.drawable.ic_image_black_24dp))
+                .error(ContextCompat.getDrawable(context, R.drawable.ic_broken_image_black_24dp))
                 .into(holder.imageViewPosterViewHolderSearchMovie);
         holder.textViewTitleMovieViewHolderSearchMovie.setText(resultSearchMovie.getTitle());
         holder.textViewDescriptionMovieViewHolderSearchMovie.setText(resultSearchMovie.getOverview());
