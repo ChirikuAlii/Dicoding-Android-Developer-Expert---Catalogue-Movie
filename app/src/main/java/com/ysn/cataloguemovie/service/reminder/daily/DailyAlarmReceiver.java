@@ -10,13 +10,19 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.ysn.cataloguemovie.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
+
 
 public class DailyAlarmReceiver extends BroadcastReceiver {
+
+    private final String TAG = getClass().getSimpleName();
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -42,6 +48,7 @@ public class DailyAlarmReceiver extends BroadcastReceiver {
     }
 
     public void setRepeatingAlarm(Context context, String time, String message) {
+        cancelAlarm(context);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(
                 Context.ALARM_SERVICE
         );
@@ -51,6 +58,9 @@ public class DailyAlarmReceiver extends BroadcastReceiver {
         calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(timeArray[0]));
         calendar.set(Calendar.MINUTE, Integer.parseInt(timeArray[1]));
         calendar.set(Calendar.SECOND, 0);
+        Log.d(TAG, "repeating time: " + new SimpleDateFormat("HH:mm", Locale.US)
+                .format(calendar.getTime())
+        );
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                 context,
                 101,
@@ -67,7 +77,7 @@ public class DailyAlarmReceiver extends BroadcastReceiver {
                 .show();
     }
 
-    public void cancelAlarm(Context context, String type) {
+    public void cancelAlarm(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, DailyAlarmReceiver.class);
         int requestCode = 101;

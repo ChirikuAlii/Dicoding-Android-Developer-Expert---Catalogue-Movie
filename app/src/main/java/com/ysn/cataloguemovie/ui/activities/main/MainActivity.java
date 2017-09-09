@@ -3,6 +3,7 @@ package com.ysn.cataloguemovie.ui.activities.main;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -22,6 +23,11 @@ public class MainActivity extends AppCompatActivity implements MainView{
         initPresenter();
         onAttachView();
         loadView();
+        doLoadData();
+    }
+
+    private void doLoadData() {
+        mainPresenter.onLoadData(this);
     }
 
     private void loadView() {
@@ -62,5 +68,11 @@ public class MainActivity extends AppCompatActivity implements MainView{
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void loadData() {
+        /** nothing to do in here */
+        Log.d(TAG, "loadData Success");
     }
 }
