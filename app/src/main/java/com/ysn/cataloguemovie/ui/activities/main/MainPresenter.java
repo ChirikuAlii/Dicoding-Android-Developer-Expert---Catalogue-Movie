@@ -5,6 +5,8 @@ import android.content.Context;
 import com.ysn.cataloguemovie.R;
 import com.ysn.cataloguemovie.service.reminder.daily.DailyAlarmPreference;
 import com.ysn.cataloguemovie.service.reminder.daily.DailyAlarmReceiver;
+import com.ysn.cataloguemovie.service.reminder.upcoming.SchedulerTask;
+import com.ysn.cataloguemovie.service.reminder.upcoming.UpcomingMoviesJobService;
 import com.ysn.cataloguemovie.ui.base.MvpPresenter;
 
 import java.text.SimpleDateFormat;
@@ -31,6 +33,7 @@ public class MainPresenter implements MvpPresenter<MainView> {
     }
 
     void onLoadData(Context context) {
+        /** Daily Reminder */
         DailyAlarmPreference dailyAlarmPreference = new DailyAlarmPreference(context);
         String time = dailyAlarmPreference.getRepeatingTime();
         if (time == null) {
@@ -50,6 +53,11 @@ public class MainPresenter implements MvpPresenter<MainView> {
                 time,
                 dailyAlarmPreference.getRepeatingMessage()
         );
+
+        /** Upcoming Movies */
+        SchedulerTask schedulerTask = new SchedulerTask(context);
+        schedulerTask.createPeriodicTask();
+
         mainView.loadData();
     }
 }

@@ -1,6 +1,8 @@
 package com.ysn.cataloguemovie.api;
 
 import com.ysn.cataloguemovie.model.movie.search.SearchMovie;
+import com.ysn.cataloguemovie.model.movie.upcoming.ResultUpcomingMovie;
+import com.ysn.cataloguemovie.model.movie.upcoming.UpcomingMovie;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -28,7 +30,7 @@ public interface TheMovieApiService {
     );
 
     @GET("movie/upcoming")
-    void getUpcomingMovie(
+    Observable<UpcomingMovie> getUpcomingMovie(
             @Query("api_key") String apiKey,
             @Query("language") String language
     );
