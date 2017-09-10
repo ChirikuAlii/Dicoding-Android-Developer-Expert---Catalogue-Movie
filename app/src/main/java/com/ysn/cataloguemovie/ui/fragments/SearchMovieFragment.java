@@ -2,6 +2,7 @@ package com.ysn.cataloguemovie.ui.fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -120,5 +121,10 @@ public class SearchMovieFragment extends Fragment implements SearchMovieView, Vi
         dismissProgressDialog();
         Toast.makeText(getContext(), "Search movie failed!", Toast.LENGTH_SHORT)
                 .show();
+    }
+
+    @Override
+    public void onClickItem(Intent intentDetailMovieActivity) {
+        startActivity(intentDetailMovieActivity);
     }
 }

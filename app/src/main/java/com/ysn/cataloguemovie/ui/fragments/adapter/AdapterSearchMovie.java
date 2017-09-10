@@ -26,10 +26,12 @@ public class AdapterSearchMovie extends RecyclerView.Adapter<AdapterSearchMovie.
     private final String TAG = getClass().getSimpleName();
     private Context context;
     private List<ResultSearchMovie> listResultSearchMovies;
+    private ListenerAdapterSearchMovie listenerAdapterSearchMovie;
 
-    public AdapterSearchMovie(Context context, List<ResultSearchMovie> listResultSearchMovies) {
+    public AdapterSearchMovie(Context context, List<ResultSearchMovie> listResultSearchMovies, ListenerAdapterSearchMovie listenerAdapterSearchMovie) {
         this.context = context;
         this.listResultSearchMovies = listResultSearchMovies;
+        this.listenerAdapterSearchMovie = listenerAdapterSearchMovie;
     }
 
     @Override
@@ -68,9 +70,15 @@ public class AdapterSearchMovie extends RecyclerView.Adapter<AdapterSearchMovie.
         private TextView textViewDescriptionMovieViewHolderSearchMovie;
         private TextView textViewReleaseDateViewHolderSearchMovie;
 
-        public ViewHolderSearchMovie(View itemView) {
+        ViewHolderSearchMovie(View itemView) {
             super(itemView);
             initViews(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listenerAdapterSearchMovie.onClick(listResultSearchMovies.get(getAdapterPosition()));
+                }
+            });
         }
 
         private void initViews(View itemView) {
@@ -83,6 +91,12 @@ public class AdapterSearchMovie extends RecyclerView.Adapter<AdapterSearchMovie.
             textViewReleaseDateViewHolderSearchMovie = (TextView) itemView
                     .findViewById(R.id.text_view_tanggal_release_item_search_movie);
         }
+    }
+
+    public interface ListenerAdapterSearchMovie {
+
+        void onClick(ResultSearchMovie resultSearchMovie);
+
     }
 
 }

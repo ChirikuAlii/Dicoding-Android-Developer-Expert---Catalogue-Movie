@@ -1,5 +1,7 @@
 package com.ysn.cataloguemovie.ui.fragments;
 
+import android.content.Intent;
+
 import com.ysn.cataloguemovie.ui.base.MvpView;
 import com.ysn.cataloguemovie.ui.fragments.adapter.AdapterSearchMovie;
 
@@ -12,4 +14,7 @@ interface SearchMovieView extends MvpView {
     void searchMovie(AdapterSearchMovie adapterSearchMovie);
 
     void searchMovieFailed();
+
+    void onClickItem(Intent intentDetailMovieActivity);
+
 }

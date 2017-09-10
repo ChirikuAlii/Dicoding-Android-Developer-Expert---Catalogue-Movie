@@ -1,6 +1,7 @@
 package com.ysn.cataloguemovie.ui.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -9,6 +10,7 @@ import com.ysn.cataloguemovie.BuildConfig;
 import com.ysn.cataloguemovie.api.TheMovieApiService;
 import com.ysn.cataloguemovie.model.movie.search.ResultSearchMovie;
 import com.ysn.cataloguemovie.model.movie.search.SearchMovie;
+import com.ysn.cataloguemovie.ui.activities.detail.DetailMovieActivity;
 import com.ysn.cataloguemovie.ui.base.MvpPresenter;
 import com.ysn.cataloguemovie.ui.fragments.adapter.AdapterSearchMovie;
 
@@ -73,7 +75,18 @@ public class SearchMoviePresenter implements MvpPresenter<SearchMovieView> {
                         if (adapterSearchMovie == null) {
                             adapterSearchMovie = new AdapterSearchMovie(
                                     context,
-                                    listResultSearchMovies
+                                    listResultSearchMovies,
+                                    new AdapterSearchMovie.ListenerAdapterSearchMovie() {
+                                        @Override
+                                        public void onClick(ResultSearchMovie resultSearchMovie) {
+                                            Intent intentDetailMovieActivity = new Intent(
+                                                    context,
+                                                    DetailMovieActivity.class
+                                            );
+                                            intentDetailMovieActivity.putExtra("idMovie", resultSearchMovie.getId());
+                                            searchMovieView.onClickItem(intentDetailMovieActivity);
+                                        }
+                                    }
                             );
                         } else {
                             adapterSearchMovie.refreshData(listResultSearchMovies);

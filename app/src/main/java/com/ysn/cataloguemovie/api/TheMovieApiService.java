@@ -1,5 +1,6 @@
 package com.ysn.cataloguemovie.api;
 
+import com.ysn.cataloguemovie.model.movie.detail.DetailMovie;
 import com.ysn.cataloguemovie.model.movie.search.SearchMovie;
 import com.ysn.cataloguemovie.model.movie.upcoming.ResultUpcomingMovie;
 import com.ysn.cataloguemovie.model.movie.upcoming.UpcomingMovie;
@@ -23,7 +24,7 @@ public interface TheMovieApiService {
     );
 
     @GET("movie/{MovieId}")
-    void getDetailMovie(
+    Observable<DetailMovie> getDetailMovie(
             @Path("MovieId") String movieId,
             @Query("api_key") String apiKey,
             @Query("language") String language
