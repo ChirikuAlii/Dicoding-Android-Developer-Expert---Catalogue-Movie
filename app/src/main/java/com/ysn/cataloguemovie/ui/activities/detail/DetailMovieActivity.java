@@ -98,6 +98,7 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
 
     @Override
     public void loadDataFailed() {
+        progressDialog.dismiss();
         Toast.makeText(this, "Load data failed", Toast.LENGTH_LONG)
                 .show();
     }

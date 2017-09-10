@@ -9,6 +9,7 @@ import com.ysn.cataloguemovie.service.reminder.upcoming.SchedulerTask;
 import com.ysn.cataloguemovie.service.reminder.upcoming.UpcomingMoviesJobService;
 import com.ysn.cataloguemovie.ui.base.MvpPresenter;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -37,9 +38,16 @@ public class MainPresenter implements MvpPresenter<MainView> {
         DailyAlarmPreference dailyAlarmPreference = new DailyAlarmPreference(context);
         String time = dailyAlarmPreference.getRepeatingTime();
         if (time == null) {
+            Date dateDailyReminderDefault = new Date();
+            try {
+                dateDailyReminderDefault = new SimpleDateFormat("HH:mm", Locale.US)
+                        .parse("12:00");
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             dailyAlarmPreference.setRepeatingTime(
                     new SimpleDateFormat("HH:mm", Locale.US)
-                            .format(new Date())
+                            .format(dateDailyReminderDefault)
             );
             dailyAlarmPreference.setRepeatingMessage(
                     context.getString(R.string.message_daily_reminder)

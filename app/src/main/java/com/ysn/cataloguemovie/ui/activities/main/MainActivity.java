@@ -1,8 +1,8 @@
 package com.ysn.cataloguemovie.ui.activities.main;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +11,7 @@ import com.ysn.cataloguemovie.R;
 import com.ysn.cataloguemovie.ui.activities.reminder.daily.DailyReminderActivity;
 import com.ysn.cataloguemovie.ui.fragments.SearchMovieFragment;
 
-public class MainActivity extends AppCompatActivity implements MainView{
+public class MainActivity extends AppCompatActivity implements MainView {
 
     private final String TAG = getClass().getSimpleName();
     private MainPresenter mainPresenter;
@@ -61,9 +61,6 @@ public class MainActivity extends AppCompatActivity implements MainView{
         switch (item.getItemId()) {
             case R.id.menu_item_daily_reminder_menu_main_activity:
                 startActivity(new Intent(this, DailyReminderActivity.class));
-                return true;
-            case R.id.menu_item_upcoming_reminder_menu_main_activity:
-                // todo: do something in here
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

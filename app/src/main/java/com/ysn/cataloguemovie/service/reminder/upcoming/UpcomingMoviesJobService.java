@@ -121,8 +121,7 @@ public class UpcomingMoviesJobService extends GcmTaskService {
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         Intent intentDetailMovieActivity = new Intent(context, DetailMovieActivity.class);
-        intentDetailMovieActivity.putExtra("id", id);
-        intentDetailMovieActivity.putExtra("originalTitle", originalTitle);
+        intentDetailMovieActivity.putExtra("idMovie", id);
         PendingIntent pendingIntentDetailMovieActivity = PendingIntent.getActivity(
                 context,
                 100,
