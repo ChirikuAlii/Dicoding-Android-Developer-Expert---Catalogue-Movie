@@ -1,9 +1,9 @@
-package com.ysn.cataloguemovie.ui.fragments;
+package com.ysn.cataloguemovie.ui.fragments.search;
 
 import android.content.Intent;
 
 import com.ysn.cataloguemovie.ui.base.MvpView;
-import com.ysn.cataloguemovie.ui.fragments.adapter.AdapterSearchMovie;
+import com.ysn.cataloguemovie.ui.fragments.search.adapter.AdapterSearchMovie;
 
 /**
  * Created by root on 06/09/17.

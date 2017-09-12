@@ -1,10 +1,9 @@
-package com.ysn.cataloguemovie.ui.fragments;
+package com.ysn.cataloguemovie.ui.fragments.search;
 
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,7 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.ysn.cataloguemovie.R;
-import com.ysn.cataloguemovie.ui.fragments.adapter.AdapterSearchMovie;
+import com.ysn.cataloguemovie.ui.fragments.search.adapter.AdapterSearchMovie;
 
 /**
  * A simple {@link Fragment} subclass.

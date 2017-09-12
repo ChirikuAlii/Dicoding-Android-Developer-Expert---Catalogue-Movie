@@ -1,4 +1,4 @@
-package com.ysn.cataloguemovie.ui.fragments.adapter;
+package com.ysn.cataloguemovie.ui.fragments.search.adapter;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -13,7 +13,6 @@ import com.bumptech.glide.Glide;
 import com.ysn.cataloguemovie.BuildConfig;
 import com.ysn.cataloguemovie.R;
 import com.ysn.cataloguemovie.model.movie.search.ResultSearchMovie;
-import com.ysn.cataloguemovie.model.movie.search.SearchMovie;
 
 import java.util.List;
 

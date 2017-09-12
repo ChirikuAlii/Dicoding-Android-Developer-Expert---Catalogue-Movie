@@ -19,4 +19,8 @@
     <string name="set_time">Set Time</string>
     <string name="save">Save</string>
     <string name="message_daily_reminder">Hey, Check movie today yah</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

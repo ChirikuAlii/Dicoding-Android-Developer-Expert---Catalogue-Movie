@@ -1,10 +1,8 @@
-package com.ysn.cataloguemovie.ui.fragments;
+package com.ysn.cataloguemovie.ui.fragments.search;
 
 import android.content.Context;
 import android.content.Intent;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.ysn.cataloguemovie.BuildConfig;
 import com.ysn.cataloguemovie.api.TheMovieApiService;
@@ -12,13 +10,11 @@ import com.ysn.cataloguemovie.model.movie.search.ResultSearchMovie;
 import com.ysn.cataloguemovie.model.movie.search.SearchMovie;
 import com.ysn.cataloguemovie.ui.activities.detail.DetailMovieActivity;
 import com.ysn.cataloguemovie.ui.base.MvpPresenter;
-import com.ysn.cataloguemovie.ui.fragments.adapter.AdapterSearchMovie;
+import com.ysn.cataloguemovie.ui.fragments.search.adapter.AdapterSearchMovie;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
