@@ -25,7 +25,9 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".ui.activities.detail.DetailMovieActivity" />
+        <activity android:name=".ui.activities.detail.DetailMovieActivity"
+            android:theme="@style/AppTheme"
+            />
 
         <service android:name=".service.reminder.upcoming.UpcomingMoviesJobService"
             android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"

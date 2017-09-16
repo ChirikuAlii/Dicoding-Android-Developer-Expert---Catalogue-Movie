@@ -100,10 +100,12 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    /** unsused */
     private void doLoadData() {
         mainPresenter.onLoadData(this);
     }
 
+    /** unused */
     private void loadView() {
         /*getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_layout_container_content_activity_main, new SearchMovieFragment())
@@ -145,11 +147,11 @@ public class MainActivity extends AppCompatActivity
         boolean selectedItem = false;
         switch (item.getItemId()) {
             case R.id.nav_item_now_playing_activity_main_nav_drawer:
-                // TODO: 9/13/17 do something in here
+                // TODO: 9/13/17 do something in here (pending)
                 selectedItem = true;
                 break;
             case R.id.nav_item_upcoming_activity_main_nav_drawer:
-                // TODO: 9/13/17 do something in here
+                // TODO: 9/13/17 do something in here (pending)
                 selectedItem = true;
                 break;
         }
