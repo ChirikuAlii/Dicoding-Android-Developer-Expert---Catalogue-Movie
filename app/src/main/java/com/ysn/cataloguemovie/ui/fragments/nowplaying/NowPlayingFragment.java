@@ -82,8 +82,8 @@ public class NowPlayingFragment extends Fragment implements NowPlayingView {
     public void itemClickShare(ResultNowPlaying resultNowPlaying) {
         Intent intentSharingMovie = new Intent(Intent.ACTION_SEND);
         intentSharingMovie.setType("text/plain");
-        String bodyMessage = "Upcoming Movie: " + resultNowPlaying.getTitle();
-        intentSharingMovie.putExtra(Intent.EXTRA_SUBJECT, "Upcoming Movie");
+        String bodyMessage = "Now Playing in cinemas: " + resultNowPlaying.getTitle();
+        intentSharingMovie.putExtra(Intent.EXTRA_SUBJECT, "Now Playing Movie");
         intentSharingMovie.putExtra(Intent.EXTRA_TEXT, bodyMessage);
         startActivity(intentSharingMovie);
     }
