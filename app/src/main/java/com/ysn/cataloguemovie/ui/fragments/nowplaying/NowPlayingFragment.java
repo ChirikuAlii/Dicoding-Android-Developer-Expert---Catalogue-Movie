@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ysn.cataloguemovie.R;
@@ -29,6 +30,8 @@ public class NowPlayingFragment extends Fragment implements NowPlayingView {
     private final String TAG = getClass().getSimpleName();
     private NowPlayingPresenter nowPlayingPresenter;
 
+    @BindView(R.id.progress_bar_loading_fragment_now_playing)
+    ProgressBar progressBarLoadingFragmentNowPlaying;
     @BindView(R.id.recycler_view_data_fragment_now_playing)
     RecyclerView recyclerViewDataFragmentNowPlaying;
 
@@ -49,6 +52,8 @@ public class NowPlayingFragment extends Fragment implements NowPlayingView {
     }
 
     private void doLoadData() {
+        progressBarLoadingFragmentNowPlaying.setVisibility(View.VISIBLE);
+        recyclerViewDataFragmentNowPlaying.setVisibility(View.GONE);
         nowPlayingPresenter.onLoadData(getContext());
     }
 
@@ -85,15 +90,19 @@ public class NowPlayingFragment extends Fragment implements NowPlayingView {
 
     @Override
     public void loadData(AdapterNowPlayingMovie adapterNowPlayingMovie) {
+        progressBarLoadingFragmentNowPlaying.setVisibility(View.GONE);
+        recyclerViewDataFragmentNowPlaying.setVisibility(View.VISIBLE);
+
         recyclerViewDataFragmentNowPlaying.setLayoutManager(new LinearLayoutManager(getContext()));
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
-        dividerItemDecoration.
         recyclerViewDataFragmentNowPlaying.addItemDecoration(dividerItemDecoration);
         recyclerViewDataFragmentNowPlaying.setAdapter(adapterNowPlayingMovie);
     }
 
     @Override
     public void loadDataFailed(String message) {
+        progressBarLoadingFragmentNowPlaying.setVisibility(View.GONE);
+        recyclerViewDataFragmentNowPlaying.setVisibility(View.VISIBLE);
         Toast.makeText(
                 getContext(),
                 message,
