@@ -1,14 +1,11 @@
 <resources>
     <string name="app_name">Catalogue Movie</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="cari">Cari</string>
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
     <string name="image_view_poster">image view poster</string>
-    <string name="judul_film">judul film</string>
-    <string name="deskripsi_film">deskripsi film</string>
-    <string name="tanggal_release">tanggal release</string>
-    <string name="kata_kunci_belum_di_isi">Kata kunci belum di isi!</string>
+    <string name="title_movie">Title Movie</string>
+    <string name="overview_movie">Overview Movie</string>
+    <string name="release_date">Release Date</string>
+    <string name="keyword_validation_message">Keyword is empty. Please fill it!</string>
     <string name="daily_reminder">Daily Reminder</string>
     <string name="upcoming_reminder">Upcoming Reminder</string>
     <string name="date">Date</string>
@@ -25,4 +22,13 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="detail">Detail</string>
     <string name="share">Share</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+    <string name="notification">Notification</string>
+    <string name="daily_reminder_notification">Daily Reminder Notification</string>
+    <string name="turn_on_off_daily_reminder">Turn on/off daily reminder</string>
+    <string name="upcoming_reminder_notification">Upcoming Reminder Notification</string>
+    <string name="turn_on_off_upcoming_reminder">Turn on/off upcoming reminder</string>
+    <string name="setting_locale">Setting Locale</string>
+    <string name="change_your_phone_localization">Change your phone localization</string>
 </resources>

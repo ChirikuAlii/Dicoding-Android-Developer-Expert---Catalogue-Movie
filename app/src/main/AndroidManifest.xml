@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ui.activities.reminder.daily.DailyReminderActivity" />
 
         <receiver
@@ -25,18 +26,22 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".ui.activities.detail.DetailMovieActivity"
-            android:theme="@style/AppTheme"
-            />
+        <activity
+            android:name=".ui.activities.detail.DetailMovieActivity"
+            android:theme="@style/AppTheme" />
 
-        <service android:name=".service.reminder.upcoming.UpcomingMoviesJobService"
-            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+        <service
+            android:name=".service.reminder.upcoming.UpcomingMoviesJobService"
             android:exported="true"
-            >
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
             <intent-filter>
                 <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".ui.activities.settings.SettingsActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

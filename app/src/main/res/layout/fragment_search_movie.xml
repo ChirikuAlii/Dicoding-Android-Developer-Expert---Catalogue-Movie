@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_cari_fragment_search_movie"
-        android:text="@string/cari"
+        android:text="@string/search"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         />

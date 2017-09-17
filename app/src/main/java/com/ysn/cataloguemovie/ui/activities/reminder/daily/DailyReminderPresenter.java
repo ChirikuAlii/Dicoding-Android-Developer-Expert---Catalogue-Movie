@@ -35,8 +35,8 @@ class DailyReminderPresenter implements MvpPresenter<DailyReminderView> {
         dailyAlarmReceiver.setRepeatingAlarm(
                 context,
                 dailyAlarmPreference.getRepeatingTime(),
-                dailyAlarmPreference.getRepeatingMessage()
-        );
+                dailyAlarmPreference.getRepeatingMessage(),
+                true);
         dailyReminderView.save();
     }
 

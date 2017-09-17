@@ -47,7 +47,7 @@ public class DailyAlarmReceiver extends BroadcastReceiver {
         notificationManagerCompat.notify(notifId, builder.build());
     }
 
-    public void setRepeatingAlarm(Context context, String time, String message) {
+    public void setRepeatingAlarm(Context context, String time, String message, boolean isShowToast) {
         cancelAlarm(context);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(
                 Context.ALARM_SERVICE
@@ -73,8 +73,10 @@ public class DailyAlarmReceiver extends BroadcastReceiver {
                 AlarmManager.INTERVAL_DAY,
                 pendingIntent
         );
-        Toast.makeText(context, "Repeating alarm set up", Toast.LENGTH_SHORT)
-                .show();
+        if (isShowToast) {
+            Toast.makeText(context, "Repeating alarm set up", Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 
     public void cancelAlarm(Context context) {

@@ -1,6 +1,7 @@
 package com.ysn.cataloguemovie.ui.activities.main;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -14,12 +15,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 
 import com.ysn.cataloguemovie.R;
+import com.ysn.cataloguemovie.ui.activities.settings.SettingsActivity;
 import com.ysn.cataloguemovie.ui.fragments.nowplaying.NowPlayingFragment;
 import com.ysn.cataloguemovie.ui.fragments.search.SearchMovieFragment;
 import com.ysn.cataloguemovie.ui.fragments.upcoming.UpcomingMovieFragment;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity
         implements MainView, NavigationView.OnNavigationItemSelectedListener {
@@ -27,14 +31,25 @@ public class MainActivity extends AppCompatActivity
     private final String TAG = getClass().getSimpleName();
     private MainPresenter mainPresenter;
 
+    @BindView(R.id.toolbar_app_bar_main)
+    Toolbar toolbar;
+    @BindView(R.id.drawer_layout_activity_main)
+    DrawerLayout drawerLayout;
+    @BindView(R.id.nav_view_activity_main)
+    NavigationView navigationView;
+    @BindView(R.id.tab_layout_content_main)
+    TabLayout tabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         initPresenter();
         onAttachView();
         initViews();
-        /*loadView()*/;
+        doLoadData();
+        /*loadView();*/
         /*doLoadData();*/
     }
 
@@ -42,7 +57,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_app_bar_main);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_activity_main);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,
                 drawerLayout,
@@ -53,10 +67,8 @@ public class MainActivity extends AppCompatActivity
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_activity_main);
         navigationView.setNavigationItemSelectedListener(this);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout_content_main);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_layout_content_main, new NowPlayingFragment())
                 .commit();
@@ -66,6 +78,9 @@ public class MainActivity extends AppCompatActivity
         );
         tabLayout.addTab(
                 tabLayout.newTab().setText(getString(R.string.upcoming))
+        );
+        tabLayout.addTab(
+                tabLayout.newTab().setText(getString(R.string.search))
         );
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -77,6 +92,9 @@ public class MainActivity extends AppCompatActivity
                         break;
                     case 1:
                         fragmentSelected = new UpcomingMovieFragment();
+                        break;
+                    case 2:
+                        fragmentSelected = new SearchMovieFragment();
                         break;
                 }
                 if (fragmentSelected != null) {
@@ -100,12 +118,16 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    /** unsused */
+    /**
+     * unsused
+     */
     private void doLoadData() {
         mainPresenter.onLoadData(this);
     }
 
-    /** unused */
+    /**
+     * unused
+     */
     private void loadView() {
         /*getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frame_layout_container_content_activity_main, new SearchMovieFragment())
@@ -147,12 +169,18 @@ public class MainActivity extends AppCompatActivity
         boolean selectedItem = false;
         switch (item.getItemId()) {
             case R.id.nav_item_now_playing_activity_main_nav_drawer:
-                // TODO: 9/13/17 do something in here (pending)
                 selectedItem = true;
+                tabLayout.getTabAt(0).select();
                 break;
             case R.id.nav_item_upcoming_activity_main_nav_drawer:
-                // TODO: 9/13/17 do something in here (pending)
-                selectedItem = true;
+                tabLayout.getTabAt(1).select();
+                break;
+            case R.id.nav_item_search_movie_activity_main_nav_drawer:
+                tabLayout.getTabAt(2).select();
+                break;
+            case R.id.nav_item_setting_activity_main_nav_drawer:
+                Intent intentSettingsActivity = new Intent(this, SettingsActivity.class);
+                startActivity(intentSettingsActivity);
                 break;
         }
 

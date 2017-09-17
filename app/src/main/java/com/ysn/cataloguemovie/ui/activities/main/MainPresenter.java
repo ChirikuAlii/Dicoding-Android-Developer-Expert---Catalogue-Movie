@@ -6,7 +6,7 @@ import com.ysn.cataloguemovie.R;
 import com.ysn.cataloguemovie.service.reminder.daily.DailyAlarmPreference;
 import com.ysn.cataloguemovie.service.reminder.daily.DailyAlarmReceiver;
 import com.ysn.cataloguemovie.service.reminder.upcoming.SchedulerTask;
-import com.ysn.cataloguemovie.service.reminder.upcoming.UpcomingMoviesJobService;
+import com.ysn.cataloguemovie.service.setting.SettingsPreference;
 import com.ysn.cataloguemovie.ui.base.MvpPresenter;
 
 import java.text.ParseException;
@@ -34,6 +34,11 @@ public class MainPresenter implements MvpPresenter<MainView> {
     }
 
     void onLoadData(Context context) {
+        /** Settings configuration */
+        SettingsPreference settingsPreference = new SettingsPreference(context);
+        boolean isDailyReminderNotificationActive = settingsPreference.getDailyReminderActive();
+        boolean isUpcomingReminderNotificationActive = settingsPreference.getUpcomingReminderActive();
+
         /** Daily Reminder */
         DailyAlarmPreference dailyAlarmPreference = new DailyAlarmPreference(context);
         String time = dailyAlarmPreference.getRepeatingTime();
@@ -55,16 +60,21 @@ public class MainPresenter implements MvpPresenter<MainView> {
             time = dailyAlarmPreference.getRepeatingTime();
         }
 
-        DailyAlarmReceiver dailyAlarmReceiver = new DailyAlarmReceiver();
-        dailyAlarmReceiver.setRepeatingAlarm(
-                context,
-                time,
-                dailyAlarmPreference.getRepeatingMessage()
-        );
+        if (isDailyReminderNotificationActive) {
+            DailyAlarmReceiver dailyAlarmReceiver = new DailyAlarmReceiver();
+            dailyAlarmReceiver.setRepeatingAlarm(
+                    context,
+                    time,
+                    dailyAlarmPreference.getRepeatingMessage(),
+                    false
+            );
+        }
 
         /** Upcoming Movies */
-        SchedulerTask schedulerTask = new SchedulerTask(context);
-        schedulerTask.createPeriodicTask();
+        if (isUpcomingReminderNotificationActive) {
+            SchedulerTask schedulerTask = new SchedulerTask(context);
+            schedulerTask.createPeriodicTask();
+        }
 
         mainView.loadData();
     }

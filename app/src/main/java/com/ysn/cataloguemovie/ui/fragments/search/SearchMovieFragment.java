@@ -84,7 +84,7 @@ public class SearchMovieFragment extends Fragment implements SearchMovieView, Vi
                 if (keyword.isEmpty()) {
                     Toast.makeText(
                             getContext(),
-                            getString(R.string.kata_kunci_belum_di_isi),
+                            getString(R.string.keyword_validation_message),
                             Toast.LENGTH_SHORT
                     ).show();
                 } else {
