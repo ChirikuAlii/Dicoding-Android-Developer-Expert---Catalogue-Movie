@@ -2,9 +2,11 @@ package com.ysn.cataloguemovie.ui.fragments.search;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,19 +20,26 @@ import android.widget.Toast;
 import com.ysn.cataloguemovie.R;
 import com.ysn.cataloguemovie.ui.fragments.search.adapter.AdapterSearchMovie;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SearchMovieFragment extends Fragment implements SearchMovieView, View.OnClickListener {
+public class SearchMovieFragment extends Fragment implements SearchMovieView {
 
     private final String TAG = getClass().getSimpleName();
     private SearchMoviePresenter searchMoviePresenter;
 
-    private EditText editTextKeywordSearchMovieFragment;
-    private Button buttonCariSearchMovieFragment;
-    private RecyclerView recyclerViewDataSearchMovieFragment;
+    @BindView(R.id.edit_text_kata_kunci_fragment_search_movie)
+    EditText editTextKeywordSearchMovieFragment;
+    @BindView(R.id.recycler_view_movie_fragment_search_movie)
+    RecyclerView recyclerViewDataSearchMovieFragment;
+
     private ProgressDialog progressDialog;
     private View view;
+    private Context context;
 
     public SearchMovieFragment() {
         // Required empty public constructor
@@ -41,10 +50,10 @@ public class SearchMovieFragment extends Fragment implements SearchMovieView, Vi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_search_movie, container, false);
-        initViews(view);
-        initListener();
+        ButterKnife.bind(this, view);
         initPresenter();
         onAttachView();
+        doLoadData();
         return view;
     }
 
@@ -52,18 +61,29 @@ public class SearchMovieFragment extends Fragment implements SearchMovieView, Vi
         searchMoviePresenter = new SearchMoviePresenter();
     }
 
-    private void initListener() {
-        buttonCariSearchMovieFragment.setOnClickListener(this);
+    private void doLoadData() {
+        if (context == null) {
+            context = getActivity();
+        }
+        recyclerViewDataSearchMovieFragment.setLayoutManager(new LinearLayoutManager(context));
+        recyclerViewDataSearchMovieFragment.addItemDecoration(
+                new DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        );
     }
 
-    private void initViews(View view) {
-        editTextKeywordSearchMovieFragment = (EditText) view.findViewById(R.id.edit_text_kata_kunci_fragment_search_movie);
-        buttonCariSearchMovieFragment = (Button) view.findViewById(R.id.button_cari_fragment_search_movie);
-        recyclerViewDataSearchMovieFragment = (RecyclerView) view.findViewById(R.id.recycler_view_movie_fragment_search_movie);
-        recyclerViewDataSearchMovieFragment.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerViewDataSearchMovieFragment.addItemDecoration(
-                new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL)
-        );
+    @OnClick(R.id.button_cari_fragment_search_movie)
+    public void onClick() {
+        String keyword = editTextKeywordSearchMovieFragment.getText().toString().trim();
+        if (keyword.isEmpty()) {
+            Toast.makeText(
+                    context,
+                    getString(R.string.keyword_validation_message),
+                    Toast.LENGTH_SHORT
+            ).show();
+        } else {
+            initProgressDialog();
+            searchMoviePresenter.onSearchMovie(context, keyword);
+        }
     }
 
     @Override
@@ -76,28 +96,9 @@ public class SearchMovieFragment extends Fragment implements SearchMovieView, Vi
         searchMoviePresenter.onDetach();
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button_cari_fragment_search_movie:
-                String keyword = editTextKeywordSearchMovieFragment.getText().toString().trim();
-                if (keyword.isEmpty()) {
-                    Toast.makeText(
-                            getContext(),
-                            getString(R.string.keyword_validation_message),
-                            Toast.LENGTH_SHORT
-                    ).show();
-                } else {
-                    initProgressDialog();
-                    searchMoviePresenter.onSearchMovie(getContext(), keyword);
-                }
-                break;
-        }
-    }
-
     private void initProgressDialog() {
         if (progressDialog == null) {
-            progressDialog = new ProgressDialog(getContext());
+            progressDialog = new ProgressDialog(context);
         }
         progressDialog.setMessage("Please wait");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -118,7 +119,7 @@ public class SearchMovieFragment extends Fragment implements SearchMovieView, Vi
     @Override
     public void searchMovieFailed() {
         dismissProgressDialog();
-        Toast.makeText(getContext(), "Search movie failed!", Toast.LENGTH_SHORT)
+        Toast.makeText(context, "Search movie failed!", Toast.LENGTH_SHORT)
                 .show();
     }
 

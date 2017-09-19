@@ -1,6 +1,7 @@
 package com.ysn.cataloguemovie.ui.fragments.upcoming;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -34,6 +35,7 @@ public class UpcomingMovieFragment extends Fragment implements UpcomingMovieView
     ProgressBar progressBarLoadingFragmentUpcomingMovie;
     @BindView(R.id.recycler_view_data_fragment_upcoming_movie)
     RecyclerView recyclerViewDataFragmentUpcomingMovie;
+    private Context context;
 
     public UpcomingMovieFragment() {
         // Required empty public constructor
@@ -52,9 +54,12 @@ public class UpcomingMovieFragment extends Fragment implements UpcomingMovieView
     }
 
     private void doLoadData() {
+        if (context == null) {
+            context = getActivity();
+        }
         progressBarLoadingFragmentUpcomingMovie.setVisibility(View.VISIBLE);
         recyclerViewDataFragmentUpcomingMovie.setVisibility(View.GONE);
-        upcomingMoviePresenter.onLoadData(getContext());
+        upcomingMoviePresenter.onLoadData(context);
     }
 
     private void initPresenter() {
@@ -73,7 +78,7 @@ public class UpcomingMovieFragment extends Fragment implements UpcomingMovieView
 
     @Override
     public void itemClickDetail(ResultUpcomingMovie resultUpcomingMovie) {
-        Intent intentDetailMovieActivity = new Intent(getContext(), DetailMovieActivity.class);
+        Intent intentDetailMovieActivity = new Intent(context, DetailMovieActivity.class);
         intentDetailMovieActivity.putExtra("idMovie", resultUpcomingMovie.getId());
         startActivity(intentDetailMovieActivity);
     }
@@ -93,8 +98,8 @@ public class UpcomingMovieFragment extends Fragment implements UpcomingMovieView
         progressBarLoadingFragmentUpcomingMovie.setVisibility(View.GONE);
         recyclerViewDataFragmentUpcomingMovie.setVisibility(View.VISIBLE);
 
-        recyclerViewDataFragmentUpcomingMovie.setLayoutManager(new LinearLayoutManager(getContext()));
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        recyclerViewDataFragmentUpcomingMovie.setLayoutManager(new LinearLayoutManager(context));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, DividerItemDecoration.VERTICAL);
         recyclerViewDataFragmentUpcomingMovie.addItemDecoration(dividerItemDecoration);
         recyclerViewDataFragmentUpcomingMovie.setAdapter(adapterUpcomingMovie);
     }
@@ -104,7 +109,7 @@ public class UpcomingMovieFragment extends Fragment implements UpcomingMovieView
         progressBarLoadingFragmentUpcomingMovie.setVisibility(View.GONE);
         recyclerViewDataFragmentUpcomingMovie.setVisibility(View.VISIBLE);
         Toast.makeText(
-                getContext(),
+                context,
                 message,
                 Toast.LENGTH_LONG
         ).show();

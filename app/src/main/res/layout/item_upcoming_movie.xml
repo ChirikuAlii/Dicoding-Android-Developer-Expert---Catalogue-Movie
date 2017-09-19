@@ -10,35 +10,25 @@
     >
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="180dp"
         android:id="@+id/image_view_poster_item_upcoming_movie"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        style="@style/ImageViewPoster"
         />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/text_view_judul_film_item_upcoming_movie"
         android:layout_toRightOf="@+id/image_view_poster_item_upcoming_movie"
         android:layout_toEndOf="@+id/image_view_poster_item_upcoming_movie"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:ellipsize="end"
+        style="@style/TextViewTitleMovie"
         />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/text_view_deskripsi_film_item_upcoming_movie"
         android:layout_toRightOf="@+id/image_view_poster_item_upcoming_movie"
         android:layout_toEndOf="@+id/image_view_poster_item_upcoming_movie"
         android:layout_below="@+id/text_view_judul_film_item_upcoming_movie"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:textSize="14sp"
-        android:maxLines="3"
-        android:ellipsize="end"
+        style="@style/TextViewOverview"
         />
 
     <TextView
@@ -65,13 +55,9 @@
         >
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:id="@+id/button_detail_item_upcoming_movie"
-            android:layout_weight="1"
             android:text="@string/detail"
-            android:textColor="#ffffff"
-            android:background="@drawable/background_button_rounded_pink"
+            style="@style/ButtonPink"
             />
 
         <View
@@ -80,13 +66,9 @@
             />
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:id="@+id/button_share_item_upcoming_movie"
-            android:layout_weight="1"
             android:text="@string/share"
-            android:textColor="#ffffff"
-            android:background="@drawable/background_button_rounded_pink"
+            style="@style/ButtonPink"
             />
 
     </LinearLayout>
