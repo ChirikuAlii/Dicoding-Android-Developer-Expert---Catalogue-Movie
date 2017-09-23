@@ -1,7 +1,0 @@
-Buat file tes9.txt
-Baris 1 ini jangan dihapus
-Baris 2 ini jangan dihapus
-Baris 3 ini jangan dihapus
-Baris 4 ini jangan dihapus
-Baris 5 ini jangan dihapus
-Perbaikan fitur b pada file tes9.txt
