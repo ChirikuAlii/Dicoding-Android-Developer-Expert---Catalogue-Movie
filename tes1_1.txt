@@ -1,2 +1,0 @@
-Buat file tes1_1.txt
-Kerjakan fitur c
