@@ -1,6 +1,14 @@
 Buat file tes6.txt
 Baris 1 ini jangan dihapus
+Ini kode salah 1
+Ini kode salah 2
 Baris 2 ini jangan dihapus
+Ini kode salah 3
 Baris 3 ini jangan dihapus
+Ini kode salah 4
+Ini kode salah 5
+Ini kode salah 6
 Baris 4 ini jangan dihapus
 Baris 5 ini jangan dihapus
+Ini kode salah 7
+Ini kode salah 8
