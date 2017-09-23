@@ -1,1 +1,0 @@
-Fitur tes8_1.txt bisa dibuat apabila fitur b pada file tes8.txt belum ada
