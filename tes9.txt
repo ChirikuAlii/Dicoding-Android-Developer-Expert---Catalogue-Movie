@@ -1,6 +1,13 @@
 Buat file tes9.txt
 Baris 1 ini jangan dihapus
+Penambahan fitur b gagal
 Baris 2 ini jangan dihapus
+Penambahan fitur b gagal
+Penambahan fitur b gagal
 Baris 3 ini jangan dihapus
+Penambahan fitur b gagal
 Baris 4 ini jangan dihapus
+Penambahan fitur b gagal
 Baris 5 ini jangan dihapus
+Penambahan fitur b gagal
+Penambahan fitur b gagal
