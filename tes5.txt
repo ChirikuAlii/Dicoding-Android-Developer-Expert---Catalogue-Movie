@@ -1,1 +1,7 @@
 Buat file tes5.txt
+Baris ini jangan dihapus
+Baris ini error
+Baris ini error
+Baris ini jangan dihapus
+Baris ini error
+Baris ini jangan dihapus
