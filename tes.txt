@@ -1,1 +1,2 @@
+Buat file tes.txt
 Ini merupakan file tes.txt yang sudah di reset
