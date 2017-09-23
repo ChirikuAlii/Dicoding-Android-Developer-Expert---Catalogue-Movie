@@ -1,8 +1,6 @@
 package com.ysn.cataloguemovie.ui.fragments.nowplaying;
 
 
-import android.arch.lifecycle.LifecycleFragment;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,7 +25,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NowPlayingFragment extends LifecycleFragment implements NowPlayingView {
+public class NowPlayingFragment extends Fragment implements NowPlayingView {
 
     private final String TAG = getClass().getSimpleName();
     private NowPlayingPresenter nowPlayingPresenter;
@@ -36,8 +34,6 @@ public class NowPlayingFragment extends LifecycleFragment implements NowPlayingV
     ProgressBar progressBarLoadingFragmentNowPlaying;
     @BindView(R.id.recycler_view_data_fragment_now_playing)
     RecyclerView recyclerViewDataFragmentNowPlaying;
-
-    private Context context;
 
     public NowPlayingFragment() {
         // Required empty public constructor
@@ -56,12 +52,9 @@ public class NowPlayingFragment extends LifecycleFragment implements NowPlayingV
     }
 
     private void doLoadData() {
-        if (context == null) {
-            context = getActivity();
-        }
         progressBarLoadingFragmentNowPlaying.setVisibility(View.VISIBLE);
         recyclerViewDataFragmentNowPlaying.setVisibility(View.GONE);
-        nowPlayingPresenter.onLoadData(context);
+        nowPlayingPresenter.onLoadData(getContext());
     }
 
     private void initPresenter() {
@@ -80,7 +73,7 @@ public class NowPlayingFragment extends LifecycleFragment implements NowPlayingV
 
     @Override
     public void itemClickDetail(ResultNowPlaying resultNowPlaying) {
-        Intent intentDetailMovie = new Intent(context, DetailMovieActivity.class);
+        Intent intentDetailMovie = new Intent(getContext(), DetailMovieActivity.class);
         intentDetailMovie.putExtra("idMovie", resultNowPlaying.getId());
         startActivity(intentDetailMovie);
     }
@@ -100,8 +93,8 @@ public class NowPlayingFragment extends LifecycleFragment implements NowPlayingV
         progressBarLoadingFragmentNowPlaying.setVisibility(View.GONE);
         recyclerViewDataFragmentNowPlaying.setVisibility(View.VISIBLE);
 
-        recyclerViewDataFragmentNowPlaying.setLayoutManager(new LinearLayoutManager(context));
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(context, DividerItemDecoration.VERTICAL);
+        recyclerViewDataFragmentNowPlaying.setLayoutManager(new LinearLayoutManager(getContext()));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
         recyclerViewDataFragmentNowPlaying.addItemDecoration(dividerItemDecoration);
         recyclerViewDataFragmentNowPlaying.setAdapter(adapterNowPlayingMovie);
     }
@@ -111,7 +104,7 @@ public class NowPlayingFragment extends LifecycleFragment implements NowPlayingV
         progressBarLoadingFragmentNowPlaying.setVisibility(View.GONE);
         recyclerViewDataFragmentNowPlaying.setVisibility(View.VISIBLE);
         Toast.makeText(
-                context,
+                getContext(),
                 message,
                 Toast.LENGTH_LONG
         ).show();
