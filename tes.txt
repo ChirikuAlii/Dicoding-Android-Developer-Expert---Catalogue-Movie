@@ -1,4 +1,0 @@
-Buat file baru
-fitur a
-fitur a
-penghilangan kode fitur b
