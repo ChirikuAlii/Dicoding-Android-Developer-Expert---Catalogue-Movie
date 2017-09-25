@@ -1,8 +1,10 @@
 Buat file baru
 fitur a
 fitur b gagal
+fitur c
 fitur b gagal
 fitur a
 fitur b gagal
 fitur a
 fitur b gagal
+fitur c
