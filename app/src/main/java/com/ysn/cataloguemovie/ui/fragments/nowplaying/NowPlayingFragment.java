@@ -94,7 +94,7 @@ public class NowPlayingFragment extends Fragment implements NowPlayingView {
         recyclerViewDataFragmentNowPlaying.setVisibility(View.VISIBLE);
 
         recyclerViewDataFragmentNowPlaying.setLayoutManager(new LinearLayoutManager(getContext()));
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
         recyclerViewDataFragmentNowPlaying.addItemDecoration(dividerItemDecoration);
         recyclerViewDataFragmentNowPlaying.setAdapter(adapterNowPlayingMovie);
     }

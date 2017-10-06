@@ -18,6 +18,19 @@
         android:id="@+id/image_view_poster_item_now_playing"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:contentDescription="@string/image_view_poster"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_view_add_favorite_item_now_playing"
+        android:src="@drawable/ic_star_border_black_24dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:contentDescription="@string/image_view_add_favorite"
         />
 
     <TextView
@@ -26,6 +39,8 @@
         android:id="@+id/text_view_judul_film_item_now_playing"
         android:layout_toRightOf="@+id/image_view_poster_item_now_playing"
         android:layout_toEndOf="@+id/image_view_poster_item_now_playing"
+        android:layout_toLeftOf="@+id/image_view_add_favorite_item_now_playing"
+        android:layout_toStartOf="@+id/image_view_add_favorite_item_now_playing"
         android:textSize="16sp"
         android:textStyle="bold"
         android:ellipsize="end"

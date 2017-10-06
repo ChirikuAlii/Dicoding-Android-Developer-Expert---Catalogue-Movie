@@ -18,6 +18,7 @@ import android.view.MenuItem;
 
 import com.ysn.cataloguemovie.R;
 import com.ysn.cataloguemovie.ui.activities.settings.SettingsActivity;
+import com.ysn.cataloguemovie.ui.fragments.favorite.FavoriteMovieFragment;
 import com.ysn.cataloguemovie.ui.fragments.nowplaying.NowPlayingFragment;
 import com.ysn.cataloguemovie.ui.fragments.search.SearchMovieFragment;
 import com.ysn.cataloguemovie.ui.fragments.upcoming.UpcomingMovieFragment;
@@ -82,6 +83,9 @@ public class MainActivity extends AppCompatActivity
         tabLayout.addTab(
                 tabLayout.newTab().setText(getString(R.string.search))
         );
+        tabLayout.addTab(
+                tabLayout.newTab().setText("Favorite")
+        );
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -95,6 +99,9 @@ public class MainActivity extends AppCompatActivity
                         break;
                     case 2:
                         fragmentSelected = new SearchMovieFragment();
+                        break;
+                    case 3:
+                        fragmentSelected = new FavoriteMovieFragment();
                         break;
                 }
                 if (fragmentSelected != null) {
@@ -118,9 +125,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    /**
-     * unsused
-     */
     private void doLoadData() {
         mainPresenter.onLoadData(this);
     }

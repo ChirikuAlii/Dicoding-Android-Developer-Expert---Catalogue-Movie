@@ -31,4 +31,5 @@
     <string name="turn_on_off_upcoming_reminder">Turn on/off upcoming reminder</string>
     <string name="setting_locale">Setting Locale</string>
     <string name="change_your_phone_localization">Change your phone localization</string>
+    <string name="image_view_add_favorite">image view add favorite</string>
 </resources>

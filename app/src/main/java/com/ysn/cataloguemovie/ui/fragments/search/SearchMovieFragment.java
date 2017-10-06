@@ -62,7 +62,7 @@ public class SearchMovieFragment extends Fragment implements SearchMovieView, Vi
         recyclerViewDataSearchMovieFragment = (RecyclerView) view.findViewById(R.id.recycler_view_movie_fragment_search_movie);
         recyclerViewDataSearchMovieFragment.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewDataSearchMovieFragment.addItemDecoration(
-                new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL)
+                new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL)
         );
     }
 

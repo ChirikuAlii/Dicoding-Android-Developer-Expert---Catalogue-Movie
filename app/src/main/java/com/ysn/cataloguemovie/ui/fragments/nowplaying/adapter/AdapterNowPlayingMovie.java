@@ -65,6 +65,8 @@ public class AdapterNowPlayingMovie extends RecyclerView.Adapter<AdapterNowPlayi
 
         @BindView(R.id.image_view_poster_item_now_playing)
         ImageView imageViewPosterItemNowPlaying;
+        @BindView(R.id.image_view_add_favorite_item_now_playing)
+        ImageView imageViewAddFavoriteItemNowPlaying;
         @BindView(R.id.text_view_judul_film_item_now_playing)
         TextView textViewJudulFilmItemNowPlaying;
         @BindView(R.id.text_view_deskripsi_film_item_now_playing)
@@ -72,17 +74,21 @@ public class AdapterNowPlayingMovie extends RecyclerView.Adapter<AdapterNowPlayi
         @BindView(R.id.text_view_tanggal_release_item_now_playing)
         TextView textViewTanggalReleaseItemNowPlaying;
 
-        public ViewHolderNowPlayingMovie(View itemView) {
+        ViewHolderNowPlayingMovie(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
         @OnClick({
+                R.id.image_view_add_favorite_item_now_playing,
                 R.id.button_detail_item_now_playing,
                 R.id.button_share_item_now_playing
         })
         public void onClick(View view) {
             switch (view.getId()) {
+                case R.id.image_view_add_favorite_item_now_playing:
+                    listenerViewHolderNowPlayingMovie
+                            .onItemAddFavorite(resultNowPlayingList.get(getAdapterPosition()));
                 case R.id.button_detail_item_now_playing:
                     listenerViewHolderNowPlayingMovie
                             .onItemClickDetail(resultNowPlayingList.get(getAdapterPosition()));
@@ -96,6 +102,8 @@ public class AdapterNowPlayingMovie extends RecyclerView.Adapter<AdapterNowPlayi
     }
 
     public interface ListenerViewHolderNowPlayingMovie {
+
+        void onItemAddFavorite(ResultNowPlaying resultNowPlaying);
 
         void onItemClickDetail(ResultNowPlaying resultNowPlaying);
 

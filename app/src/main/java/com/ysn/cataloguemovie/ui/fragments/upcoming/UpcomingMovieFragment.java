@@ -94,7 +94,7 @@ public class UpcomingMovieFragment extends Fragment implements UpcomingMovieView
         recyclerViewDataFragmentUpcomingMovie.setVisibility(View.VISIBLE);
 
         recyclerViewDataFragmentUpcomingMovie.setLayoutManager(new LinearLayoutManager(getContext()));
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL);
         recyclerViewDataFragmentUpcomingMovie.addItemDecoration(dividerItemDecoration);
         recyclerViewDataFragmentUpcomingMovie.setAdapter(adapterUpcomingMovie);
     }
