@@ -61,11 +61,6 @@ public class NowPlayingPresenter implements MvpPresenter<NowPlayingView> {
                                 new AdapterNowPlayingMovie.ListenerViewHolderNowPlayingMovie() {
 
                                     @Override
-                                    public void onItemAddFavorite(ResultNowPlaying resultNowPlaying) {
-                                        // TODO: 10/6/17 do something in here
-                                    }
-
-                                    @Override
                                     public void onItemClickDetail(ResultNowPlaying resultNowPlaying) {
                                         nowPlayingView.itemClickDetail(resultNowPlaying);
                                     }

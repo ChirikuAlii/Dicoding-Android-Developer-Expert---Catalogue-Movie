@@ -1,68 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relative_layout_container_item_now_playing"
+    android:id="@+id/relative_layout_container_item_favorite_movie"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/activity_vertical_margin"
-    android:layout_marginTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/background_rounded_white"
-    android:paddingBottom="@dimen/item_recycler_view_vertical_margin"
-    android:paddingLeft="@dimen/item_recycler_view_horizontal_margin"
-    android:paddingRight="@dimen/item_recycler_view_horizontal_margin"
-    android:paddingTop="@dimen/item_recycler_view_vertical_margin">
+    android:paddingBottom="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="8dp">
 
     <ImageView
-        android:id="@+id/image_view_poster_item_now_playing"
+        android:id="@+id/image_view_poster_item_favorite_movie"
         android:layout_width="150dp"
         android:layout_height="180dp"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:contentDescription="@string/image_view_poster" />
+        android:layout_marginRight="@dimen/activity_horizontal_margin" />
 
     <TextView
-        android:id="@+id/text_view_judul_film_item_now_playing"
+        android:id="@+id/text_view_judul_film_item_favorite_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/image_view_poster_item_now_playing"
-        android:layout_toRightOf="@+id/image_view_poster_item_now_playing"
+        android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
+        android:layout_toRightOf="@+id/image_view_poster_item_favorite_movie"
         android:ellipsize="end"
         android:textSize="16sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/text_view_deskripsi_film_item_now_playing"
+        android:id="@+id/text_view_deskripsi_film_item_favorite_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_judul_film_item_now_playing"
+        android:layout_below="@+id/text_view_judul_film_item_favorite_movie"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toEndOf="@+id/image_view_poster_item_now_playing"
-        android:layout_toRightOf="@+id/image_view_poster_item_now_playing"
+        android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
+        android:layout_toRightOf="@+id/image_view_poster_item_favorite_movie"
         android:ellipsize="end"
         android:maxLines="3"
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/text_view_tanggal_release_item_now_playing"
+        android:id="@+id/text_view_tanggal_release_item_favorite_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_deskripsi_film_item_now_playing"
+        android:layout_below="@+id/text_view_deskripsi_film_item_favorite_movie"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toEndOf="@+id/image_view_poster_item_now_playing"
-        android:layout_toRightOf="@+id/image_view_poster_item_now_playing"
+        android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
+        android:layout_toRightOf="@+id/image_view_poster_item_favorite_movie"
+        android:ellipsize="end"
         android:maxLines="2"
         android:textSize="15sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_view_tanggal_release_item_now_playing"
+        android:layout_below="@+id/text_view_tanggal_release_item_favorite_movie"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toEndOf="@+id/image_view_poster_item_now_playing"
-        android:layout_toRightOf="@+id/image_view_poster_item_now_playing"
+        android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
+        android:layout_toRightOf="@+id/image_view_poster_item_favorite_movie"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button_detail_item_now_playing"
+            android:id="@+id/button_detail_item_favorite_movie"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -75,7 +72,7 @@
             android:layout_height="1dp" />
 
         <Button
-            android:id="@+id/button_share_item_now_playing"
+            android:id="@+id/button_share_item_favorite_movie"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

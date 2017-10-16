@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity
         onAttachView();
         initViews();
         doLoadData();
-        /*loadView();*/
-        /*doLoadData();*/
     }
 
     private void initViews() {

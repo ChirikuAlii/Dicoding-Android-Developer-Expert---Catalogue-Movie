@@ -2,6 +2,7 @@ package com.ysn.cataloguemovie.di.component;
 
 import com.ysn.cataloguemovie.di.PerActivity;
 import com.ysn.cataloguemovie.di.module.ActivityModule;
+import com.ysn.cataloguemovie.ui.activities.detail.DetailMovieActivity;
 import com.ysn.cataloguemovie.ui.activities.main.MainActivity;
 
 import dagger.Component;
@@ -14,6 +15,6 @@ import dagger.Component;
 @Component(dependencies = AppComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
 
-    void inject(MainActivity mainActivity);
+    void inject(DetailMovieActivity detailMovieActivity);
 
 }

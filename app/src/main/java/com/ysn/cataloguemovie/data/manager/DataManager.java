@@ -1,11 +1,15 @@
 package com.ysn.cataloguemovie.data.manager;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.ysn.cataloguemovie.data.db.DatabaseHelper;
 import com.ysn.cataloguemovie.di.ApplicationContext;
-import com.ysn.cataloguemovie.model.movie.nowplaying.ResultNowPlaying;
-import com.ysn.cataloguemovie.model.movie.upcoming.ResultUpcomingMovie;
+import com.ysn.cataloguemovie.model.movie.detail.DetailMovie;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -27,12 +31,8 @@ public class DataManager {
         this.databaseHelper = databaseHelper;
     }
 
-    public Long insertDataFavorite(ResultNowPlaying resultNowPlaying) throws Exception {
-        return databaseHelper.insertDataFavorite(resultNowPlaying);
-    }
-
-    public Long insertDataFavorite(ResultUpcomingMovie resultUpcomingMovie) throws Exception {
-        return databaseHelper.insertDataFavorite(resultUpcomingMovie);
+    public Long insertDataFavorite(DetailMovie detailMovie) throws Exception {
+        return databaseHelper.insertDataFavorite(detailMovie);
     }
 
     public int deleteDataFavorite(long idMovie) throws Exception {
@@ -41,6 +41,14 @@ public class DataManager {
 
     public int getSizeItemDataFavorite() {
         return databaseHelper.itemCountDataFavorite();
+    }
+
+    public boolean isItemDataAlready(long idMovie) {
+        return databaseHelper.itemDataAlreadyAdded(idMovie);
+    }
+
+    public List<DetailMovie> getAll() {
+        return databaseHelper.getAll();
     }
 
 }

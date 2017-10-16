@@ -32,4 +32,7 @@
     <string name="setting_locale">Setting Locale</string>
     <string name="change_your_phone_localization">Change your phone localization</string>
     <string name="image_view_add_favorite">image view add favorite</string>
+    <string name="overview">Overview</string>
+    <string name="refresh_data">Please, refresh your data</string>
+    <string name="refresh">Refresh</string>
 </resources>

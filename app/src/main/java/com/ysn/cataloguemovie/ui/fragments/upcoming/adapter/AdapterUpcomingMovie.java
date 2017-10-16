@@ -72,7 +72,7 @@ public class AdapterUpcomingMovie extends RecyclerView.Adapter<AdapterUpcomingMo
         @BindView(R.id.text_view_tanggal_release_item_upcoming_movie)
         TextView textViewTanggalReleaseItemUpcomingMovie;
 
-        public ViewHolderItemUpcomingMovie(View itemView) {
+        ViewHolderItemUpcomingMovie(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }

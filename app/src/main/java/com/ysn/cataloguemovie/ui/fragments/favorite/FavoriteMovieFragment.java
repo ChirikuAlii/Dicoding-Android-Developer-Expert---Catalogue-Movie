@@ -9,7 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.ysn.cataloguemovie.App;
 import com.ysn.cataloguemovie.R;
+import com.ysn.cataloguemovie.data.manager.DataManager;
+import com.ysn.cataloguemovie.di.component.DaggerFragmentComponent;
+import com.ysn.cataloguemovie.di.component.FragmentComponent;
+import com.ysn.cataloguemovie.di.module.FragmentModule;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +35,21 @@ public class FavoriteMovieFragment extends Fragment implements FavoriteMovieView
     @BindView(R.id.recycler_view_data_fragment_favorite_movie)
     RecyclerView recyclerViewDataFragmentFavoriteMovie;
 
+    @Inject
+    DataManager dataManager;
+    FragmentComponent fragmentComponent;
+
+    public FragmentComponent getFragmentComponent() {
+        if (fragmentComponent == null) {
+            fragmentComponent = DaggerFragmentComponent
+                    .builder()
+                    .fragmentModule(new FragmentModule(this))
+                    .appComponent(App.get(getContext()).getAppComponent())
+                    .build();
+        }
+        return fragmentComponent;
+    }
+
     public FavoriteMovieFragment() {
         // Required empty public constructor
     }
@@ -38,6 +60,7 @@ public class FavoriteMovieFragment extends Fragment implements FavoriteMovieView
         // Inflate the layout for this fragment
         View viewRoot = inflater.inflate(R.layout.fragment_favorite_movie, container, false);
         ButterKnife.bind(this, viewRoot);
+        getFragmentComponent().inject(this);
         initPresenter();
         onAttachView();
         doLoadData();

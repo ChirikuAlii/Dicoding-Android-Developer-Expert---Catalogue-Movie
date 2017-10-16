@@ -60,6 +60,45 @@ public class DetailMovie {
     @SerializedName("vote_count")
     private Long mVoteCount;
 
+    public DetailMovie() {
+    }
+
+    public DetailMovie(Boolean mAdult, String mBackdropPath, Object mBelongsToCollection,
+                       Long mBudget, List<Genre> mGenres, String mHomepage, Long mId, String mImdbId,
+                       String mOriginalLanguage, String mOriginalTitle, String mOverview,
+                       Double mPopularity, String mPosterPath,
+                       List<ProductionCompany> mProductionCompanies,
+                       List<ProductionCountry> mProductionCountries, String mReleaseDate,
+                       Long mRevenue, Long mRuntime, List<SpokenLanguage> mSpokenLanguages,
+                       String mStatus, String mTagline, String mTitle, Boolean mVideo,
+                       Double mVoteAverage, Long mVoteCount) {
+        this.mAdult = mAdult;
+        this.mBackdropPath = mBackdropPath;
+        this.mBelongsToCollection = mBelongsToCollection;
+        this.mBudget = mBudget;
+        this.mGenres = mGenres;
+        this.mHomepage = mHomepage;
+        this.mId = mId;
+        this.mImdbId = mImdbId;
+        this.mOriginalLanguage = mOriginalLanguage;
+        this.mOriginalTitle = mOriginalTitle;
+        this.mOverview = mOverview;
+        this.mPopularity = mPopularity;
+        this.mPosterPath = mPosterPath;
+        this.mProductionCompanies = mProductionCompanies;
+        this.mProductionCountries = mProductionCountries;
+        this.mReleaseDate = mReleaseDate;
+        this.mRevenue = mRevenue;
+        this.mRuntime = mRuntime;
+        this.mSpokenLanguages = mSpokenLanguages;
+        this.mStatus = mStatus;
+        this.mTagline = mTagline;
+        this.mTitle = mTitle;
+        this.mVideo = mVideo;
+        this.mVoteAverage = mVoteAverage;
+        this.mVoteCount = mVoteCount;
+    }
+
     public Boolean getAdult() {
         return mAdult;
     }

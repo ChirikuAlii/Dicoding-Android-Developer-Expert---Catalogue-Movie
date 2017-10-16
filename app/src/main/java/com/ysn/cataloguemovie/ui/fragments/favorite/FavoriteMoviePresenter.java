@@ -1,5 +1,6 @@
 package com.ysn.cataloguemovie.ui.fragments.favorite;
 
+import com.ysn.cataloguemovie.data.manager.DataManager;
 import com.ysn.cataloguemovie.ui.base.MvpPresenter;
 
 /**
@@ -21,7 +22,8 @@ class FavoriteMoviePresenter implements MvpPresenter<FavoriteMovieView> {
         favoriteMovieView = null;
     }
 
-    void onLoadData() {
-        // TODO: 10/6/17 do something in here
+    void onLoadData(DataManager dataManager) {
+        // TODO: 10/16/17 do something in here
+        dataManager.getAll();
     }
 }
