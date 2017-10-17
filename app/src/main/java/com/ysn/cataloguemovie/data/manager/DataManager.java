@@ -31,6 +31,10 @@ public class DataManager {
         this.databaseHelper = databaseHelper;
     }
 
+    public SQLiteDatabase getWritableDatabase() {
+        return databaseHelper.getWritableDatabase();
+    }
+
     public Long insertDataFavorite(DetailMovie detailMovie) throws Exception {
         return databaseHelper.insertDataFavorite(detailMovie);
     }

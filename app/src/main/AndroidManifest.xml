@@ -3,6 +3,12 @@
     package="com.ysn.cataloguemovie">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <permission
+        android:name="com.ysn.cataloguemovie.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.ysn.cataloguemovie.WRITE_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:name=".App"
@@ -43,6 +49,13 @@
         <activity
             android:name=".ui.activities.settings.SettingsActivity"
             android:theme="@style/AppTheme" />
+
+        <provider
+            android:authorities="com.ysn.cataloguemovie"
+            android:name=".provider.FavoriteMovieProvider"
+            android:exported="true"
+            android:readPermission="com.ysn.cataloguemovie.READ_DATABASE"
+            android:writePermission="com.ysn.cataloguemovie.WRITE_DATABASE" />
     </application>
 
 </manifest>
