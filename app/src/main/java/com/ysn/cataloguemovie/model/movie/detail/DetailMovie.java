@@ -299,4 +299,34 @@ public class DetailMovie {
         mVoteCount = voteCount;
     }
 
+    @Override
+    public String toString() {
+        return "DetailMovie{" +
+                "mAdult=" + mAdult +
+                ", mBackdropPath='" + mBackdropPath + '\'' +
+                ", mBelongsToCollection=" + mBelongsToCollection +
+                ", mBudget=" + mBudget +
+                ", mGenres=" + mGenres +
+                ", mHomepage='" + mHomepage + '\'' +
+                ", mId=" + mId +
+                ", mImdbId='" + mImdbId + '\'' +
+                ", mOriginalLanguage='" + mOriginalLanguage + '\'' +
+                ", mOriginalTitle='" + mOriginalTitle + '\'' +
+                ", mOverview='" + mOverview + '\'' +
+                ", mPopularity=" + mPopularity +
+                ", mPosterPath='" + mPosterPath + '\'' +
+                ", mProductionCompanies=" + mProductionCompanies +
+                ", mProductionCountries=" + mProductionCountries +
+                ", mReleaseDate='" + mReleaseDate + '\'' +
+                ", mRevenue=" + mRevenue +
+                ", mRuntime=" + mRuntime +
+                ", mSpokenLanguages=" + mSpokenLanguages +
+                ", mStatus='" + mStatus + '\'' +
+                ", mTagline='" + mTagline + '\'' +
+                ", mTitle='" + mTitle + '\'' +
+                ", mVideo=" + mVideo +
+                ", mVoteAverage=" + mVoteAverage +
+                ", mVoteCount=" + mVoteCount +
+                '}';
+    }
 }

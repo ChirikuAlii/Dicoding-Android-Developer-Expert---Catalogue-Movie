@@ -81,7 +81,6 @@ public class DetailMoviePresenter implements MvpPresenter<DetailMovieView> {
     }
 
     void onAddToFavoriteMovie(DetailMovie detailMovie, DataManager dataManager) {
-        Log.d(TAG, "onAddToFavoriteMovie");
         try {
             dataManager.insertDataFavorite(detailMovie);
             detailMovieView.addToFavoriteMovie();

@@ -3,6 +3,7 @@
     android:id="@+id/relative_layout_container_item_favorite_movie"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/background_rounded_white"
     android:paddingBottom="8dp"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"

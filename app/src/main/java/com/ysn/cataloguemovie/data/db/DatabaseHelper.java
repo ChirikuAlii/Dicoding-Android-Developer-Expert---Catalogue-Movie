@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.icu.lang.UCharacter;
+import android.util.Log;
 
 import com.ysn.cataloguemovie.di.ApplicationContext;
 import com.ysn.cataloguemovie.di.DatabaseInfo;
@@ -96,6 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
             SQLiteDatabase sqLiteDatabase = getWritableDatabase();
             ContentValues contentValues = new ContentValues();
+            Log.d(TAG, "detailMovie: " + detailMovie);
             contentValues.put(
                     FAVORITE_COLUMN_ADULT, detailMovie.getAdult()
             );
@@ -205,10 +208,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (cursor.getCount() > 0) {
                 while (cursor.moveToNext()) {
                     DetailMovie detailMovie = new DetailMovie();
-                    detailMovie.setBackdropPath(
-                            cursor.getString(cursor.getColumnIndex(FAVORITE_COLUMN_BACKDROP_PATH))
+                    detailMovie.setId(
+                            Long.valueOf(cursor.getString(cursor.getColumnIndex(FAVORITE_COLUMN_ID_MOVIE)))
                     );
-                    // TODO: 10/17/17 do something in here to set data from db to pojo
+                    detailMovie.setPosterPath(
+                            cursor.getString(cursor.getColumnIndex(FAVORITE_COLUMN_POSTER_PATH))
+                    );
+                    detailMovie.setTitle(
+                            cursor.getString(cursor.getColumnIndex(FAVORITE_COLUMN_TITLE))
+                    );
+                    detailMovie.setOverview(
+                            cursor.getString(cursor.getColumnIndex(FAVORITE_COLUMN_OVERVIEW))
+                    );
+                    detailMovie.setReleaseDate(
+                            cursor.getString(cursor.getColumnIndex(FAVORITE_COLUMN_RELEASE_DATE))
+                    );
+                    listDataDetailMovie.add(detailMovie);
                 }
             }
         } catch (Exception e) {
