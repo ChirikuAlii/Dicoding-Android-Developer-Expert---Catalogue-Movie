@@ -1,14 +1,12 @@
 package com.ysn.cataloguemovie.data.manager;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.ysn.cataloguemovie.data.db.DatabaseHelper;
 import com.ysn.cataloguemovie.di.ApplicationContext;
 import com.ysn.cataloguemovie.model.movie.detail.DetailMovie;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -35,24 +33,24 @@ public class DataManager {
         return databaseHelper.getWritableDatabase();
     }
 
-    public Long insertDataFavorite(DetailMovie detailMovie) throws Exception {
-        return databaseHelper.insertDataFavorite(detailMovie);
+    public Long insertDataFavorite(Context context, DetailMovie detailMovie) throws Exception {
+        return databaseHelper.insertDataFavorite(context, detailMovie);
     }
 
-    public int deleteDataFavorite(long idMovie) throws Exception {
-        return databaseHelper.deleteDataFavorite(idMovie);
+    public int deleteDataFavorite(Context context, long idMovie) throws Exception {
+        return databaseHelper.deleteDataFavorite(context, idMovie);
     }
 
-    public int getSizeItemDataFavorite() {
-        return databaseHelper.itemCountDataFavorite();
+    public int getSizeItemDataFavorite(Context context) {
+        return databaseHelper.itemCountDataFavorite(context);
     }
 
-    public boolean isItemDataAlready(long idMovie) {
-        return databaseHelper.itemDataAlreadyAdded(idMovie);
+    public boolean isItemDataAlready(Context context, long idMovie) {
+        return databaseHelper.itemDataAlreadyAdded(context, idMovie);
     }
 
-    public List<DetailMovie> getAll() {
-        return databaseHelper.getAll();
+    public List<DetailMovie> getAll(Context context) {
+        return databaseHelper.getAll(context);
     }
 
 }

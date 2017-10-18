@@ -2,6 +2,7 @@ package com.ysn.cataloguemovie;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.ysn.cataloguemovie.di.component.AppComponent;
 import com.ysn.cataloguemovie.di.component.DaggerAppComponent;
@@ -13,6 +14,7 @@ import com.ysn.cataloguemovie.di.module.AppModule;
 
 public class App extends Application {
 
+    private final String TAG = getClass().getSimpleName();
     protected AppComponent component;
 
     public static App get(Context context) {

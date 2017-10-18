@@ -112,7 +112,7 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
                                 Toast.LENGTH_LONG
                         ).show();
                     } else {
-                        detailMoviePresenter.onAddToFavoriteMovie(detailMovie, dataManager);
+                        detailMoviePresenter.onAddToFavoriteMovie(this, detailMovie, dataManager);
                     }
                 } else {
                     if (detailMovie == null) {
@@ -122,7 +122,7 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
                                 Toast.LENGTH_LONG
                         ).show();
                     } else {
-                        detailMoviePresenter.onDeleteFromFavoriteMovie(detailMovie, dataManager);
+                        detailMoviePresenter.onDeleteFromFavoriteMovie(this, detailMovie, dataManager);
                     }
                 }
                 break;
@@ -139,12 +139,12 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
         progressDialog.setMessage("Please wait");
         progressDialog.setCancelable(false);
         progressDialog.show();
-        detailMoviePresenter.onLoadData(idMovie, dataManager);
+        detailMoviePresenter.onLoadData(this, idMovie, dataManager);
     }
 
     private void doRefreshData() {
         progressDialog.show();
-        detailMoviePresenter.onLoadData(idMovie, dataManager);
+        detailMoviePresenter.onLoadData(this, idMovie, dataManager);
     }
 
     private void initPresenter() {
