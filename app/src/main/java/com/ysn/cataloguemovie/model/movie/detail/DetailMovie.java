@@ -346,7 +346,8 @@ public class DetailMovie implements Parcelable {
     }
 
     public DetailMovie(Cursor cursor) {
-        this.mId = getColumnLong(cursor, FAVORITE_COLUMN_ID_MOVIE);
+        /*this.mId = getColumnLong(cursor, FAVORITE_COLUMN_ID_MOVIE);*/
+        this.mId = getColumnLong(cursor, FAVORITE_COLUMN_ID);
         this.mTitle = getColumnString(cursor, FAVORITE_COLUMN_TITLE);
         this.mReleaseDate = getColumnString(cursor, FAVORITE_COLUMN_RELEASE_DATE);
         this.mOverview = getColumnString(cursor, FAVORITE_COLUMN_OVERVIEW);

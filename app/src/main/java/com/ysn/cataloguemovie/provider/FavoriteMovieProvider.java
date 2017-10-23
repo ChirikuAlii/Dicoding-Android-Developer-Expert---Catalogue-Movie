@@ -48,15 +48,7 @@ public class FavoriteMovieProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s, @Nullable String[] strings1, @Nullable String s1) {
         Cursor cursor = null;
         if (uriMatcher.match(uri) == FAVORITE) {
-            cursor = sqLiteDatabase.query(
-                    DatabaseHelper.FAVORITE_TABLE_NAME,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null
-            );
+            cursor = favoriteHelper.getAll();
         }
         return cursor;
     }
@@ -70,11 +62,7 @@ public class FavoriteMovieProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        long id = sqLiteDatabase.insert(
-                DatabaseHelper.FAVORITE_TABLE_NAME,
-                null,
-                contentValues
-        );
+        long id = favoriteHelper.insertDataFavorite(contentValues);
         if (id > 0) {
             Uri mUri = ContentUris.withAppendedId(CONTENT_URI, id);
             getContext().getContentResolver()
@@ -100,7 +88,7 @@ public class FavoriteMovieProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
-        int updatedCount = 0;
+        /*int updatedCount = 0;
         switch (uriMatcher.match(uri)) {
             case FAVORITE:
                 updatedCount = sqLiteDatabase.update(
@@ -114,6 +102,8 @@ public class FavoriteMovieProvider extends ContentProvider {
                 throw new IllegalArgumentException("This is an Unknown URI " + uri);
         }
         getContext().getContentResolver().notifyChange(uri, null);
-        return updatedCount;
+        return updatedCount;*/
+
+        return 0;
     }
 }

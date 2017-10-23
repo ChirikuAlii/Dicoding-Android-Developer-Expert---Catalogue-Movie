@@ -42,11 +42,11 @@ public class DataManager {
     }
 
     public int getSizeItemDataFavorite(Context context) {
-        return databaseHelper.itemCountDataFavorite(context);
+        return databaseHelper.itemCountDataFavorite();
     }
 
     public boolean isItemDataAlready(Context context, long idMovie) {
-        return databaseHelper.itemDataAlreadyAdded(context, idMovie);
+        return databaseHelper.itemDataAlreadyAdded(idMovie);
     }
 
     public List<DetailMovie> getAll(Context context) {

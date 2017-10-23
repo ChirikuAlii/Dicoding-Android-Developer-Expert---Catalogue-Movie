@@ -1,6 +1,8 @@
 package com.ysn.cataloguemovie.data.db;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -36,24 +38,24 @@ public class FavoriteHelper {
         return databaseHelper.getWritableDatabase();
     }
 
-    public Long insertDataFavorite(DetailMovie detailMovie) throws Exception {
-        return databaseHelper.insertDataFavorite(context, detailMovie);
+    public Long insertDataFavorite(ContentValues contentValues) {
+        return databaseHelper.insertDataFavoriteProvider(contentValues);
     }
 
-    public int deleteDataFavorite(long idMovie) throws Exception {
-        return databaseHelper.deleteDataFavorite(context, idMovie);
+    public int deleteDataFavorite(long idMovie) {
+        return databaseHelper.deleteDataFavoriteProvider(idMovie);
     }
 
     public int getSizeItemDataFavorite() {
-        return databaseHelper.itemCountDataFavorite(context);
+        return databaseHelper.itemCountDataFavoriteProvider();
     }
 
     public boolean isItemDataAlready(long idMovie) {
-        return databaseHelper.itemDataAlreadyAdded(context, idMovie);
+        return databaseHelper.itemDataAlreadyAddedProvider(idMovie);
     }
 
-    public List<DetailMovie> getAll(Context context) {
-        return databaseHelper.getAll(context);
+    public Cursor getAll() {
+        return databaseHelper.getAllProvider();
     }
 
 }
