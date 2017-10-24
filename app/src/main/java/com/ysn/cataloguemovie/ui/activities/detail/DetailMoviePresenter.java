@@ -81,9 +81,9 @@ public class DetailMoviePresenter implements MvpPresenter<DetailMovieView> {
                 });
     }
 
-    void onAddToFavoriteMovie(Context context, DetailMovie detailMovie, DataManager dataManager) {
+    void onAddToFavoriteMovie(DetailMovie detailMovie, DataManager dataManager) {
         try {
-            dataManager.insertDataFavorite(context, detailMovie);
+            dataManager.insertDataFavorite(detailMovie);
             detailMovieView.addToFavoriteMovie();
         } catch (Exception e) {
             e.printStackTrace();
@@ -91,10 +91,10 @@ public class DetailMoviePresenter implements MvpPresenter<DetailMovieView> {
         }
     }
 
-    void onDeleteFromFavoriteMovie(Context context, DetailMovie detailMovie, DataManager dataManager) {
+    void onDeleteFromFavoriteMovie(DetailMovie detailMovie, DataManager dataManager) {
         Log.d(TAG, "onDeleteFromFavoriteMovie");
         try {
-            dataManager.deleteDataFavorite(context, detailMovie.getId());
+            dataManager.deleteDataFavorite(detailMovie.getId());
             detailMovieView.deleteFromFavoriteMovie();
         } catch (Exception e) {
             e.printStackTrace();

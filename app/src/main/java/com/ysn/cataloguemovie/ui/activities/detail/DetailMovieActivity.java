@@ -112,7 +112,7 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
                                 Toast.LENGTH_LONG
                         ).show();
                     } else {
-                        detailMoviePresenter.onAddToFavoriteMovie(this, detailMovie, dataManager);
+                        detailMoviePresenter.onAddToFavoriteMovie(detailMovie, dataManager);
                     }
                 } else {
                     if (detailMovie == null) {
@@ -122,7 +122,7 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
                                 Toast.LENGTH_LONG
                         ).show();
                     } else {
-                        detailMoviePresenter.onDeleteFromFavoriteMovie(this, detailMovie, dataManager);
+                        detailMoviePresenter.onDeleteFromFavoriteMovie(detailMovie, dataManager);
                     }
                 }
                 break;

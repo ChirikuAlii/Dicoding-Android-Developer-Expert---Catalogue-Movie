@@ -11,10 +11,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ysn.favoritemovie.MainActivity">
 
-    <TextView
-        android:id="@+id/text_view_activity_main"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_favorite_movie_activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_activity_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_centerInParent="true" />
 
 </RelativeLayout>

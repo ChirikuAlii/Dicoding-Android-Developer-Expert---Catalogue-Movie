@@ -1,87 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relative_layout_container_item_favorite_movie"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_rounded_white"
+    android:id="@+id/relative_layout_container_item_favorite_movie"
+    android:paddingTop="8dp"
+    android:paddingRight="8dp"
     android:paddingBottom="8dp"
     android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="8dp">
+    >
 
     <ImageView
-        android:id="@+id/image_view_poster_item_favorite_movie"
         android:layout_width="150dp"
-        android:layout_height="180dp"
+        android:layout_height="150dp"
+        android:id="@+id/image_view_poster_item_favorite_movie"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:contentDescription="@string/image_view_poster"
         />
 
     <TextView
-        android:id="@+id/text_view_judul_film_item_favorite_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
+        android:id="@+id/text_view_judul_film_item_favorite_movie"
         android:layout_toRightOf="@+id/image_view_poster_item_favorite_movie"
+        android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
         android:ellipsize="end"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
     <TextView
-        android:id="@+id/text_view_deskripsi_film_item_favorite_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/text_view_deskripsi_film_item_favorite_movie"
         android:layout_below="@+id/text_view_judul_film_item_favorite_movie"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
         android:layout_toRightOf="@+id/image_view_poster_item_favorite_movie"
         android:ellipsize="end"
         android:maxLines="3"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        />
 
     <TextView
-        android:id="@+id/text_view_tanggal_release_item_favorite_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/text_view_tanggal_release_item_favorite_movie"
         android:layout_below="@+id/text_view_deskripsi_film_item_favorite_movie"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
         android:layout_toRightOf="@+id/image_view_poster_item_favorite_movie"
+        android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_below="@+id/text_view_tanggal_release_item_favorite_movie"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_toEndOf="@+id/image_view_poster_item_favorite_movie"
         android:layout_toRightOf="@+id/image_view_poster_item_favorite_movie"
-        android:orientation="horizontal">
+        >
 
         <Button
-            android:id="@+id/button_detail_item_favorite_movie"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:id="@+id/button_detail_item_favorite_movie"
             android:layout_weight="1"
             android:background="@drawable/background_button_rounded_pink"
             android:text="@string/detail"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            />
 
         <View
             android:layout_width="8dp"
-            android:layout_height="1dp" />
+            android:layout_height="1dp"
+            />
 
         <Button
-            android:id="@+id/button_share_item_favorite_movie"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:id="@+id/button_share_item_favorite_movie"
             android:layout_weight="1"
             android:background="@drawable/background_button_rounded_pink"
             android:text="@string/share"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            />
 
     </LinearLayout>
 

@@ -29,7 +29,7 @@ class FavoriteMoviePresenter implements MvpPresenter<FavoriteMovieView> {
     }
 
     void onLoadData(Context context, DataManager dataManager) {
-        List<DetailMovie> listFavoriteMovie = dataManager.getAll(context);
+        List<DetailMovie> listFavoriteMovie = dataManager.getAll();
         AdapterFavoriteMovie adapterFavoriteMovie = new AdapterFavoriteMovie(
                 context,
                 listFavoriteMovie,

@@ -33,15 +33,15 @@ public class DataManager {
         return databaseHelper.getWritableDatabase();
     }
 
-    public Long insertDataFavorite(Context context, DetailMovie detailMovie) throws Exception {
-        return databaseHelper.insertDataFavorite(context, detailMovie);
+    public Long insertDataFavorite(DetailMovie detailMovie) throws Exception {
+        return databaseHelper.insertDataFavorite(detailMovie);
     }
 
-    public int deleteDataFavorite(Context context, long idMovie) throws Exception {
-        return databaseHelper.deleteDataFavorite(context, idMovie);
+    public int deleteDataFavorite(long idMovie) throws Exception {
+        return databaseHelper.deleteDataFavorite(idMovie);
     }
 
-    public int getSizeItemDataFavorite(Context context) {
+    public int getSizeItemDataFavorite() {
         return databaseHelper.itemCountDataFavorite();
     }
 
@@ -49,8 +49,8 @@ public class DataManager {
         return databaseHelper.itemDataAlreadyAdded(idMovie);
     }
 
-    public List<DetailMovie> getAll(Context context) {
-        return databaseHelper.getAll(context);
+    public List<DetailMovie> getAll() {
+        return databaseHelper.getAll();
     }
 
 }
