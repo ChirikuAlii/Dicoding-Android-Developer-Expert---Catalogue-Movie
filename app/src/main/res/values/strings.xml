@@ -35,4 +35,7 @@
     <string name="overview">Overview</string>
     <string name="refresh_data">Please, refresh your data</string>
     <string name="refresh">Refresh</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="empty_text">NO DATA</string>
 </resources>

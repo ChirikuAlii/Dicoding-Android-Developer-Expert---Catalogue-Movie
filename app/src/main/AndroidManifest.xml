@@ -3,6 +3,7 @@
     package="com.ysn.cataloguemovie">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <permission
         android:name="com.ysn.cataloguemovie.READ_DATABASE"
         android:protectionLevel="normal" />
@@ -25,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ui.activities.reminder.daily.DailyReminderActivity" />
 
         <receiver
@@ -51,11 +51,25 @@
             android:theme="@style/AppTheme" />
 
         <provider
-            android:authorities="com.ysn.cataloguemovie"
             android:name=".provider.FavoriteMovieProvider"
+            android:authorities="com.ysn.cataloguemovie"
             android:exported="true"
             android:readPermission="com.ysn.cataloguemovie.READ_DATABASE"
             android:writePermission="com.ysn.cataloguemovie.WRITE_DATABASE" />
+
+        <receiver android:name=".widgets.FavoriteMovieWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/favorite_movie_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".widgets.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 
 </manifest>

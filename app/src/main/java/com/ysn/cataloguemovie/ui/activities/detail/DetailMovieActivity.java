@@ -1,14 +1,21 @@
 package com.ysn.cataloguemovie.ui.activities.detail;
 
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +28,8 @@ import com.ysn.cataloguemovie.di.component.ActivityComponent;
 import com.ysn.cataloguemovie.di.component.DaggerActivityComponent;
 import com.ysn.cataloguemovie.di.module.ActivityModule;
 import com.ysn.cataloguemovie.model.movie.detail.DetailMovie;
+import com.ysn.cataloguemovie.widgets.FavoriteMovieWidget;
+import com.ysn.cataloguemovie.widgets.StackWidgetService;
 
 import javax.inject.Inject;
 
@@ -132,6 +141,7 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
     private void onLoadData() {
         Bundle bundle = getIntent().getExtras();
         idMovie = bundle.getLong("idMovie");
+        Log.d(TAG, "idMovie: " + idMovie);
 
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(this);
@@ -196,6 +206,57 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
     public void addToFavoriteMovie() {
         imageViewAddToFavoriteMovieDetailMovieActivity.setBackgroundResource(R.drawable.ic_star_black_24dp);
         imageViewAddToFavoriteMovieDetailMovieActivity.setTag("star full");
+        refreshFavoriteWidget();
+    }
+
+    private void refreshFavoriteWidget() {
+        /*AppWidgetManager manager = AppWidgetManager.getInstance(this);
+
+        RemoteViews remoteViews = new RemoteViews(
+                getPackageName(),
+                R.layout.bilangan_acak_widget
+        );
+        ComponentName theWidget = new ComponentName(
+                this,
+                BilanganAcakWidget.class
+        );
+
+        String lastUpdate = "Random: " + NumberGenerator.Generate(100);
+
+        remoteViews.setTextViewText(R.id.appwidget_text, lastUpdate);
+        manager.updateAppWidget(theWidget, remoteViews);*/
+
+        Log.d(TAG, "refreshFavoriteWidget");
+        Intent intentFavoriteMovieWidget = new Intent(this, FavoriteMovieWidget.class);
+        intentFavoriteMovieWidget.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        sendBroadcast(intentFavoriteMovieWidget);
+
+        /*AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
+        RemoteViews remoteViews = new RemoteViews(
+                getPackageName(),
+                R.layout.favorite_movie_widget
+        );
+        ComponentName theWidget = new ComponentName(
+                this,
+                FavoriteMovieWidget.class
+        );
+
+        Intent intent = new Intent(this, StackWidgetService.class);
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetManager.getAppWidgetIds(theWidget));
+        intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
+        remoteViews.setRemoteAdapter(R.id.stack_view, intent);
+        remoteViews.setEmptyView(R.id.stack_view, R.id.text_view_empty_view_favorite_movie_wdiget);
+        appWidgetManager.updateAppWidget(theWidget, remoteViews);*/
+
+        /*AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
+        RemoteViews remoteV = new RemoteViews(getPackageName(), R.layout.favorite_movie_widget);
+        Intent intentSync = new Intent(this, FavoriteMovieWidget.class);
+        intentSync.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE); //You need to specify the action for the intent. Right now that intent is doing nothing for there is no action to be broadcasted.
+        PendingIntent pendingSync = PendingIntent
+                .getBroadcast(this, 0, intentSync, PendingIntent.FLAG_UPDATE_CURRENT); //You need to specify a proper flag for the intent. Or else the intent will become deleted.
+        remoteV.setOnClickPendingIntent(R.id.imageButtonSync, pendingSync);
+
+        appWidgetManager.updateAppWidget(awID, remoteV);*/
     }
 
     @Override
@@ -218,6 +279,7 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
     public void deleteFromFavoriteMovie() {
         imageViewAddToFavoriteMovieDetailMovieActivity.setBackgroundResource(R.drawable.ic_star_border_black_24dp);
         imageViewAddToFavoriteMovieDetailMovieActivity.setTag("star border");
+        refreshFavoriteWidget();
     }
 
     @Override
