@@ -47,8 +47,13 @@ public class NowPlayingFragment extends Fragment implements NowPlayingView {
         ButterKnife.bind(this, viewRoot);
         initPresenter();
         onAttachView();
-        doLoadData();
         return viewRoot;
+    }
+
+    @Override
+    public void onResume() {
+        doLoadData();
+        super.onResume();
     }
 
     private void doLoadData() {

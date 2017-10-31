@@ -80,7 +80,12 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
         initPresenter();
         onAttachView();
         setToolbar();
+    }
+
+    @Override
+    protected void onResume() {
         onLoadData();
+        super.onResume();
     }
 
     private void setToolbar() {
