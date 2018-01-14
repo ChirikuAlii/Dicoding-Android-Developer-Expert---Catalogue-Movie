@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "com.ysn.favoritemovie"
@@ -18,16 +18,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "production"
     productFlavors {
         production {
             applicationIdSuffix ".production"
-            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
-            buildConfigField("String", "API_KEY", "\"fe71629f457c2466875babf7fbe5bb6c\"")
-            buildConfigField("String", "LANGUAGE", "\"en-US\"")
-            buildConfigField("String", "BASE_URL_IMAGE", "\"http://image.tmdb.org/t/p/w185/\"")
-        }
-        development {
-            applicationIdSuffix ".development"
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
             buildConfigField("String", "API_KEY", "\"fe71629f457c2466875babf7fbe5bb6c\"")
             buildConfigField("String", "LANGUAGE", "\"en-US\"")
@@ -47,6 +41,6 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.github.bumptech.glide:glide:3.8.0'
     compile 'com.jakewharton:butterknife:8.8.1'
-    compile 'com.jakewharton:butterknife-compiler:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     testCompile 'junit:junit:4.12'
 }
