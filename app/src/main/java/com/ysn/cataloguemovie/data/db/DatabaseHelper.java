@@ -1,3 +1,10 @@
+/*
+ * Created by Yudi Setiawan on 1/23/18 10:29 PM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 1/23/18 10:13 PM
+ */
+
 package com.ysn.cataloguemovie.data.db;
 
 import android.content.ContentValues;
@@ -22,10 +29,6 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import static com.ysn.cataloguemovie.data.db.DatabaseContract.*;
-
-/**
- * Created by yudisetiawan on 10/6/17.
- */
 
 @Singleton
 public class DatabaseHelper extends SQLiteOpenHelper {

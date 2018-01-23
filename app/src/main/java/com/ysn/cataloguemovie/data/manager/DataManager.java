@@ -1,3 +1,10 @@
+/*
+ * Created by Yudi Setiawan on 1/23/18 10:29 PM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 1/23/18 10:14 PM
+ */
+
 package com.ysn.cataloguemovie.data.manager;
 
 import android.content.Context;
@@ -11,10 +18,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
-/**
- * Created by yudisetiawan on 10/6/17.
- */
 
 @Singleton
 public class DataManager {

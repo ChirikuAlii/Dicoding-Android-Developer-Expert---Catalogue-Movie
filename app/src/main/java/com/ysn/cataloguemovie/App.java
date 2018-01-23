@@ -1,3 +1,10 @@
+/*
+ * Created by Yudi Setiawan on 1/23/18 10:29 PM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 1/23/18 10:21 PM
+ */
+
 package com.ysn.cataloguemovie;
 
 import android.app.Application;
@@ -7,10 +14,6 @@ import android.util.Log;
 import com.ysn.cataloguemovie.di.component.AppComponent;
 import com.ysn.cataloguemovie.di.component.DaggerAppComponent;
 import com.ysn.cataloguemovie.di.module.AppModule;
-
-/**
- * Created by yudisetiawan on 10/6/17.
- */
 
 public class App extends Application {
 

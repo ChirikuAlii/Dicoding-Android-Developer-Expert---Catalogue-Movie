@@ -1,12 +1,15 @@
+/*
+ * Created by Yudi Setiawan on 1/23/18 10:29 PM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 1/23/18 10:12 PM
+ */
+
 package com.ysn.favoritemovie;
 
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
-
-/**
- * Created by yudisetiawan on 10/23/17.
- */
 
 public class DatabaseContract {
 

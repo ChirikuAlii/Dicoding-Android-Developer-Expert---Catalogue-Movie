@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Yudi Setiawan on 1/23/18 10:29 PM
+  ~ Copyright (c) 2018. All rights reserved.
+  ~
+  ~ Last modified 1/23/18 10:25 PM
+  -->
+
 <resources>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Yudi Setiawan on 1/23/18 10:29 PM
+  ~ Copyright (c) 2018. All rights reserved.
+  ~
+  ~ Last modified 1/23/18 10:24 PM
+  -->
+
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"

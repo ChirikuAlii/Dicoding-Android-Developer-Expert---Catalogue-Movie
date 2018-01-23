@@ -1,3 +1,10 @@
+/*
+ * Created by Yudi Setiawan on 1/23/18 10:29 PM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 1/23/18 10:21 PM
+ */
+
 package com.ysn.cataloguemovie.widgets;
 
 import android.appwidget.AppWidgetManager;
@@ -5,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -17,10 +25,6 @@ import com.ysn.cataloguemovie.model.movie.detail.DetailMovie;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
-/**
- * Created by yudisetiawan on 10/29/17.
- */
 
 public class StackRemoteViewsFactory
         implements RemoteViewsService.RemoteViewsFactory {
@@ -62,6 +66,7 @@ public class StackRemoteViewsFactory
 
     @Override
     public RemoteViews getViewAt(int position) {
+        Log.d(TAG, "position: " + position);
         Bitmap bitmap = null;
         String posterPath = listDetailMovie.get(position).getPosterPath();
         try {

@@ -1,15 +1,17 @@
+/*
+ * Created by Yudi Setiawan on 1/23/18 10:29 PM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 1/23/18 10:15 PM
+ */
+
 package com.ysn.cataloguemovie.di.component;
 
-import com.ysn.cataloguemovie.App;
 import com.ysn.cataloguemovie.di.PerProvider;
 import com.ysn.cataloguemovie.di.module.ProviderModule;
 import com.ysn.cataloguemovie.provider.FavoriteMovieProvider;
 
 import dagger.Component;
-
-/**
- * Created by yudisetiawan on 10/17/17.
- */
 
 @PerProvider
 @Component(dependencies = AppComponent.class, modules = ProviderModule.class)

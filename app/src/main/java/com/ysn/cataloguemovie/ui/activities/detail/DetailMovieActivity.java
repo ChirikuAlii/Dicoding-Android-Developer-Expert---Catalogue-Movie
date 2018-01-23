@@ -1,12 +1,16 @@
+/*
+ * Created by Yudi Setiawan on 1/23/18 10:29 PM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 1/23/18 10:21 PM
+ */
+
 package com.ysn.cataloguemovie.ui.activities.detail;
 
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +19,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +32,6 @@ import com.ysn.cataloguemovie.di.component.DaggerActivityComponent;
 import com.ysn.cataloguemovie.di.module.ActivityModule;
 import com.ysn.cataloguemovie.model.movie.detail.DetailMovie;
 import com.ysn.cataloguemovie.widgets.FavoriteMovieWidget;
-import com.ysn.cataloguemovie.widgets.StackWidgetService;
 
 import javax.inject.Inject;
 

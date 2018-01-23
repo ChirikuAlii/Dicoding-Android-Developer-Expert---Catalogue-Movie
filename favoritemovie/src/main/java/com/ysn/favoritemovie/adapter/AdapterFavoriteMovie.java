@@ -1,3 +1,10 @@
+/*
+ * Created by Yudi Setiawan on 1/23/18 10:29 PM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 1/23/18 10:12 PM
+ */
+
 package com.ysn.favoritemovie.adapter;
 
 import android.content.Context;
@@ -19,10 +26,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-/**
- * Created by yudisetiawan on 10/24/17.
- */
 
 public class AdapterFavoriteMovie extends RecyclerView.Adapter<AdapterFavoriteMovie.ViewHolderFavoriteMovie> {
 

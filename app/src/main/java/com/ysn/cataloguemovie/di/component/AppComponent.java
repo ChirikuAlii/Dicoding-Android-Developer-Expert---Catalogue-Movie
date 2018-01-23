@@ -1,3 +1,10 @@
+/*
+ * Created by Yudi Setiawan on 1/23/18 10:29 PM
+ * Copyright (c) 2018. All rights reserved.
+ *
+ * Last modified 1/23/18 10:14 PM
+ */
+
 package com.ysn.cataloguemovie.di.component;
 
 import android.app.Application;
@@ -12,10 +19,6 @@ import com.ysn.cataloguemovie.di.module.AppModule;
 import javax.inject.Singleton;
 
 import dagger.Component;
-
-/**
- * Created by yudisetiawan on 10/6/17.
- */
 
 @Singleton
 @Component(modules = AppModule.class)
